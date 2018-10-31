@@ -32,6 +32,7 @@
 * DRY
 * KISS
 * TDD
+* DDD
 * Шаблоны проектирования
 * GitFlow
 
