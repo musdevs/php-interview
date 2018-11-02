@@ -1,9 +1,11 @@
 # Подготовка к собеседованию Senior PHP-developer
 
 ## PHP
-* ООП
+* [История версий](php/version.md)
+* [ООП](php/oop.md)
 * Функции для работы с массивами
 * Сессии
+* RegExp
 
 ## Алгоритмы, задачи
 
@@ -14,17 +16,27 @@
 * Codeception
 * PHPUnit
 
+## Протоколы
+* REST
+* SOAP
+* GraphQL
+* Веб-сокеты
+
 ## Продукты
-* MySQL
 * RabbitMQ
 * Docker
 * Jenkins
-* PostgreSQL
-* MemcacheD
-* Redis
-* Git
+* Sphinx
 
 ## Базы данных
+* MySQL
+* PostgreSQL
+* Memcached
+* Clickhouse
+* Redis
+
+## Теория и практика БД
+* [SQL](database/sql.md)
 * ACID
 
 ## Методологии, шаблоны, принципы
@@ -34,7 +46,16 @@
 * TDD
 * DDD
 * Шаблоны проектирования
-* GitFlow
+
+## Управление проектами
+* Agile
+* [Scrum](pm/scrum.md)
+* [Git, Gitflow, Code review](pm/git.md)
+
+## [Highload](highload/index.md)
+
+## CMS
+* [Битрикс](cms/bitrix.md)
 
 ## Ресурсы
 1. [Вопросы для собеседования бэкенд-разработчика](https://habr.com/post/349434/)
