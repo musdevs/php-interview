@@ -24,7 +24,7 @@
 
 ## Продукты
 * RabbitMQ
-* Docker
+* [Docker](products/docker.md)
 * Jenkins
 * Sphinx
 
