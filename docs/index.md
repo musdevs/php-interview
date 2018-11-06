@@ -10,8 +10,7 @@
 ## Алгоритмы, задачи
 
 
-## Фреймворки, библиотеки и инструменты
-* [Symfony](tools/symfony.md)
+## Инструменты
 * [Composer](tools/composer.md)
 * Codeception
 * PHPUnit
@@ -55,8 +54,9 @@
 
 ## [Highload](highload/index.md)
 
-## CMS
-* [Битрикс](cms/bitrix.md)
+## Фреймворки и CMS
+* [Symfony](frameworks/symfony.md)
+* [Битрикс](frameworks/bitrix.md)
 
 ## Ресурсы
 1. [Вопросы для собеседования бэкенд-разработчика](https://habr.com/post/349434/)
