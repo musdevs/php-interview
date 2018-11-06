@@ -3,7 +3,7 @@
 ## PHP
 * [История версий](php/version.md)
 * [ООП](php/oop.md)
-* Функции для работы с массивами
+* [Функции для работы с массивами](php/array.md)
 * Сессии
 * RegExp
 
@@ -11,20 +11,20 @@
 
 
 ## Фреймворки, библиотеки и инструменты
-* Symfony
-* Composer
+* [Symfony](tools/symfony.md)
+* [Composer](tools/composer.md)
 * Codeception
 * PHPUnit
 
 ## Протоколы
-* REST
+* [REST](protocols/rest.md)
 * SOAP
 * GraphQL
 * Веб-сокеты
 
 ## Продукты
 * RabbitMQ
-* Docker
+* [Docker](products/docker.md)
 * Jenkins
 * Sphinx
 

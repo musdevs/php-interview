@@ -1,0 +1,98 @@
+# Docker
+
+> Docker - программная платформа для быстрой сборки, отладки и
+развертывания приложений. Docker упаковывает библиотеки, системные
+инструменты, код и среду исполнения в контейнеры. А сам Docker является
+операционной системой для контейнеров.
+
+Получение последнего образа PHP:
+```
+docker pull php:latest
+```
+
+Запуск контейнера с монтированием тома из host-системы и исполнением
+PHP-скрипта:
+```
+docker run --priveleged --rm -v $(pwd):/app php:latest php /app/index.php
+```
+* --privileged - нужен, если на host-системе включена SELinux, вместо
+  него можно использовать -v $(pwd):/app:z или -v $(pwd):/app:Z
+* --rm - удалить контейнер после запуска
+* -v $(pwd):/app - монтировать текущий каталог (результат `$ pwd`) в
+  корневой каталог /app
+* php /app/index.php - команда, которая будет запущена в контейнере
+
+Запуск контейнера с apache httpd без привязки к терминалу и присвоением
+имени контейнеру:
+```
+docker run -d --name=my-web-server --priveleged --rm -p 38000:80 -v $(pwd):/var/www/html php:apache
+```
+* -d (detached mode) без привязки к контейнеру
+* --name=my-web-server - присвоить контейнеру имя, чтобы было удобнее
+  обращаться по имени, а не по ID
+* -p 38000:80 - пробросить внутренний порт контейнера 80 на порт
+  38000 у host-системы
+* $(pwd):/var/www/html - монтирование текущего каталога к каталогу
+  DOCUMENT_ROOT в образе php:apache
+
+Запуск контейнера с базой данных MySQL с сохранением данных в хостовой
+системе
+```
+$ docker run -d --rm --name my-db -e MYSQL_USER=admin -e MYSQL_DATABASE=mydb -e MYSQL_PASSWORD=mypass -e MYSQL_RANDOM_ROOT_PASSWORD=true -v $(pwd)/.data:/var/lib/mysql mysql:5.7
+```
+
+## Создание собственного образа
+
+Сначала создается Dockerfile
+```
+FROM php:apache
+RUN docker-php-source extract && docker-php-ext-install mysqli && docker-php-source delete
+```
+
+Затем создается образ:
+```
+docker build . -t customvendor/my-app-image
+```
+
+Теперь можно запустить контейнер с новым образом:
+```
+docker run -d --rm --name=my-app -p 38000:80 -v $(pwd):/var/www/html --link my-db customvendor/my-app-image
+```
+* --link my-db - контейнер my-app связывется с другим контейнером my-db
+* customvendor/my-app-image - запускаемый контейнер создается из нового образа customvendor/my-app-image
+
+## Краткий справочник
+
+### Образы
+* docker images показывает все образы.
+* docker build создаёт образ из файла Dockerfile .
+* docker commit создает образ из контейнера, останавливает его, если он запущен.
+* docker rmi удаляет образ.
+* docker history показывает историю образа.
+* docker tag создает тег для образа (локальному или в реестре).
+
+### Жизненный цикл контейнеров
+* docker create создает контейнер, но не запускает его.
+* docker run создает и запускает контейнер за одну операцию.
+* docker rm удаляет контейнер.
+
+### Запуск и остановка контейнеров
+* docker start запускает контейнер, чтобы он работал.
+* docker stop останавливает запущенный контейнер.
+* docker restart останавливает и запускает контейнер.
+* docker pause приостанавливает работу контейнера, «замораживая» его на месте.
+* docker unpause возобновляет работу запущенного контейнера.
+* docker exec выполняет команду в контейнере.
+* docker attach подключается к запущенному контейнеру.
+
+### Информация о контейнере
+* docker ps показывает запущенные контейнеры.
+* docker logs получает логи из контейнера.
+* docker inspect  показывает всю информацию о контейнере.
+* docker port показывает открытый порт контейнера.
+* docker stats показывает статистику использования ресурсов контейнеров.
+* docker diff показывает измененные файлы в файловой системе контейнера.
+
+## Ресурсы
+
+1. [Создание вашего первого PHP-приложения с помощью Docker](https://leanpub.com/first-php-docker-application-ru)
