@@ -27,6 +27,7 @@
 * [Docker](products/docker.md)
 * Jenkins
 * Sphinx
+* Elasticsearch
 
 ## Базы данных
 * MySQL
