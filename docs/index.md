@@ -15,8 +15,8 @@
 * Codeception
 * PHPUnit
 
-## Протоколы
-* [REST](protocols/rest.md)
+## [Протоколы, архитектура](protocols/index.md)
+* [Архитектура REST](protocols/rest.md)
 * SOAP
 * GraphQL
 * Веб-сокеты
@@ -39,10 +39,9 @@
 * [SQL](database/sql.md)
 * ACID
 
-## Методологии, шаблоны, принципы
+## [Методологии, шаблоны, принципы](principles/index.md)
 * [SOLID](solid.md)
-* DRY
-* KISS
+* [DRY, KISS](principles/index.md)
 * TDD
 * DDD
 * [Шаблоны проектирования](pattern/index.md)
