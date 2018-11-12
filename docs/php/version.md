@@ -21,3 +21,16 @@
   * Оператор возведения в степень **
   * Импорт функций и констант при помощи ключевого слова use
   * Поддержка загрузки файлов больше 2 Гб
+  
+* [7.0](http://php.net/manual/ru/migration70.new-features.php)
+  * Группировка обновлений импорта (use Framework{Foo, Bar})
+  * Объявление возвращаемых значений (self, array, callable, bool, float, int, string)
+  * Оператор объединения с null ()
+  * Оператор spaceship (космический корабль) (case ($a <=> $b) { case -1: ... case 0: ... case 1: ...})
+  * Анонимные классы
+
+* [7.1](http://php.net/manual/ru/migration71.new-features.php)
+  * Обнуляемые типы (могут быть NULL): function test(?string $name)
+  * Видимость констант класса
+  * Поддержка отрицательных смещений для строк
+  * Ничего не возвращающие функции: function swap(&$left, &$right): void
