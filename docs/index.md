@@ -12,6 +12,8 @@
 
 ## Инструменты
 * [Composer](tools/composer.md)
+
+## [Тестирование](test/index.md)
 * Codeception
 * PHPUnit
 
@@ -43,7 +45,7 @@
 * [SOLID](solid.md)
 * [DRY, KISS](principles/index.md)
 * TDD
-* DDD
+* [DDD](principles/ddd.md)
 * [Шаблоны проектирования](pattern/index.md)
 
 ## Управление проектами
