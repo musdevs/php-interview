@@ -58,7 +58,9 @@
 
 ## Фреймворки и CMS
 * [Symfony](frameworks/symfony.md)
-* [Битрикс](frameworks/bitrix.md)
+
+### [Битрикс](frameworks/bitrix/index.md)
+* [Настройка Docker для Битрикс](frameworks/bitrix/docker.md)
 
 ## Ресурсы
 1. [Вопросы для собеседования бэкенд-разработчика](https://habr.com/post/349434/)
