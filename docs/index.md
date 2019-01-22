@@ -33,7 +33,7 @@
 
 ## Базы данных
 * MySQL
-* PostgreSQL
+* [PostgreSQL](database/postgre.md)
 * Memcached
 * Clickhouse
 * Redis
