@@ -1,5 +1,7 @@
 # PostgreSQL
 
+## Полезные запросы
+
 Список всех таблиц во всех схемах с комментарием:
 ```sql
 SELECT
@@ -27,3 +29,27 @@ SELECT * FROM pg_roles;
 ```sql
 SELECT * FROM pg_database
 ```
+
+## Пример docker-контейнера
+
+```yaml
+version: "3.1"
+services:
+  postgres:
+    image: postgres:9.5
+    restart: always
+    container_name: postgres95
+    volumes:
+      - ./storage:/var/lib/postgresql/data
+    ports:
+      - "15432:5432"
+    env_file: ".env"
+    environment:
+      - "POSTGRES_DB=${DB_DATABASE}"
+      - "POSTGRES_USER=${DB_USERNAME}"
+      - "POSTGRES_PASSWORD=${DB_PASSWORD}"
+```
+
+## Ресурсы
+
+1. [Настройка Docker-контейнера для PostgreSQL на docs.docker.com](https://docs.docker.com/samples/library/postgres/)
