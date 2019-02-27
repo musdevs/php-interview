@@ -1,4 +1,4 @@
-# Подготовка к собеседованию Senior PHP-developer
+# База знаний для Senior PHP-developer
 
 ## PHP
 * [История версий](php/version.md)
@@ -7,6 +7,10 @@
 * Сессии
 * RegExp
 * [Производительность](php/performance.md)
+
+## Javascript
+* [Node.js](/javascript/nodejs)
+
 
 ## Алгоритмы, задачи
 
@@ -61,6 +65,9 @@
 
 ### [Битрикс](frameworks/bitrix/index.md)
 * [Настройка Docker для Битрикс](frameworks/bitrix/docker.md)
+
+## Системное администрирование Linux
+
 
 ## Ресурсы
 1. [Вопросы для собеседования бэкенд-разработчика](https://habr.com/post/349434/)

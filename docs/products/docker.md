@@ -93,6 +93,10 @@ docker run -d --rm --name=my-app -p 38000:80 -v $(pwd):/var/www/html --link my-d
 * docker stats показывает статистику использования ресурсов контейнеров.
 * docker diff показывает измененные файлы в файловой системе контейнера.
 
+### Информация о сетях
+* docker network ls показывает список сетей
+* docker network inspect xxx показывает подробную информацию о сети xxx
+
 ## Ресурсы
 
 1. [Создание вашего первого PHP-приложения с помощью Docker](https://leanpub.com/first-php-docker-application-ru)

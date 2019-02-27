@@ -53,3 +53,4 @@ services:
 ## Ресурсы
 
 1. [Настройка Docker-контейнера для PostgreSQL на docs.docker.com](https://docs.docker.com/samples/library/postgres/)
+2. [romeOz/docker-postgresql](https://github.com/romeOz/docker-postgresql)
