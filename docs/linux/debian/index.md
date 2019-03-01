@@ -52,6 +52,7 @@ apt-get install procps
 
 Перезапуск php-fpm
 ```bash
-apt-get install procps
+ps -ef | grep fpm
+kill -USR2 <master_pid>
 ```
 

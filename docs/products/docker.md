@@ -97,6 +97,13 @@ docker run -d --rm --name=my-app -p 38000:80 -v $(pwd):/var/www/html --link my-d
 * docker network ls показывает список сетей
 * docker network inspect xxx показывает подробную информацию о сети xxx
 
+### Управление процессами в контейнерах
+
+Перезапуск основного процесса (ID=1) в контейнере (например, PHP-FPM)
+```bash
+docker exec -it <mycontainer> kill -USR2 1
+```
+
 ## Ресурсы
 
 1. [Создание вашего первого PHP-приложения с помощью Docker](https://leanpub.com/first-php-docker-application-ru)
