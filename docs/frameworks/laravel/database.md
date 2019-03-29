@@ -21,6 +21,14 @@ $result = \DB::connection('my')
 print_r(\DB::connection('my')->getQueryLog());
 ```
 
+Вывести запрос в [Tinker](http://laragems.com/post/a-quick-way-to-display-a-sql-query-in-tinker)
+
+```php
+\DB::listen(function ($query) { dump($query->sql); dump($query->bindings); dump($query->time); });
+```
+ 
 ## Ресурсы
 
 1. [Database: Query Builder](https://laravel.com/docs/5.3/queries)
+2. [Eloquent Cheat Sheet](http://laragems.com/post/eloquent-cheat-sheet)
+3. [Raw DB Operations with Laravel Cheat Sheet](http://laragems.com/post/raw-db-operations-with-laravel-cheat-sheet)

@@ -107,3 +107,5 @@ docker exec -it <mycontainer> kill -USR2 1
 ## Ресурсы
 
 1. [Создание вашего первого PHP-приложения с помощью Docker](https://leanpub.com/first-php-docker-application-ru)
+2. Настройка Cron и Systemd в контейнерах
+  * [How to run a cron job inside a docker container](https://stackoverflow.com/questions/37458287/how-to-run-a-cron-job-inside-a-docker-container)
