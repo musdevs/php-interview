@@ -76,3 +76,6 @@ function templateRenderer(TemplateFactory $factory)
 ```php
 templateRenderer(new TwigTemplateFactory());
 ```
+
+## Ресурсы
+* (DesignPatternsPHP)[https://github.com/domnikl/DesignPatternsPHP]
