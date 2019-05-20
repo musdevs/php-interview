@@ -30,6 +30,11 @@ SELECT * FROM pg_roles;
 SELECT * FROM pg_database
 ```
 
+Текущая база:
+```sql
+SELECT current_database()
+```
+
 ## Пример docker-контейнера
 
 ```yaml
