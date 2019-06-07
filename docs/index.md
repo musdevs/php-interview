@@ -17,6 +17,7 @@
 
 ## Инструменты
 * [Composer](tools/composer.md)
+* [Make](tools/make.md)
 
 ## [Тестирование](test/index.md)
 * Codeception
