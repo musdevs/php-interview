@@ -7,6 +7,7 @@
 * Сессии
 * RegExp
 * [Производительность](php/performance.md)
+* [Обфускация](php/obfuscation.md)
 
 ## Javascript
 * [Node.js](/javascript/nodejs)
