@@ -1,4 +1,4 @@
-# База знаний для Senior PHP-developer
+# База знаний для PHP-developer
 
 ## PHP
 * [История версий](php/version.md)
@@ -69,8 +69,15 @@
 * [Настройка Docker для Битрикс](frameworks/bitrix/docker.md)
 
 ## Системное администрирование Linux
+* [Общая информация об операционной системе](linux/info.md)
+* [Cron](linux/cron.md)
+* [Безопасность](linux/security.md)
+* [Debian](linux/debian/index.md)
+* Сеть
+    * [Network diagnostic in Linux](linux/network/debug.md)
+    * [Network manager](linux/network/network_manager.md)
 
-#№ [Сервисы для обучения](education/index.md)
+## [Сервисы для обучения](education/index.md)
 
 
 
