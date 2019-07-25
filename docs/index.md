@@ -63,7 +63,10 @@
 ## [Highload](highload/index.md)
 
 ## Фреймворки и CMS
-* [Symfony](frameworks/symfony.md)
+
+### [Symfony](frameworks/symfony.md)
+
+### [Laravel](frameworks/laravel/index.md)
 
 ### [Битрикс](frameworks/bitrix/index.md)
 * [Настройка Docker для Битрикс](frameworks/bitrix/docker.md)
