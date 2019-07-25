@@ -1,3 +1,10 @@
+# Laravel
+
+## Index
+
+1. [Database](database.md)
+2. [How-to](howto.md)
+
 # Ресурсы
 
 ## Docker
