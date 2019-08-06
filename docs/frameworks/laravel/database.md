@@ -26,7 +26,48 @@ print_r(\DB::connection('my')->getQueryLog());
 ```php
 \DB::listen(function ($query) { dump($query->sql); dump($query->bindings); dump($query->time); });
 ```
- 
+
+Условие по дате без учета времени
+```php
+\DB::connection('my')
+    ->table('users')
+    ->whereDate('user.updated_at', '=', '2019-08-06')
+```
+
+приведет к формированию запроса в PostgreSQL:
+
+```sql
+select
+	users.id
+from
+	users
+where
+	"updated_at"::date = '2019-08-06'
+```
+
+а может еще и так
+
+```sql
+select
+	users.id
+from
+	users
+where
+	date_trunc('DAY', updated_at) = '2019-08-06'
+```
+
+а в Oracle так
+
+```sql
+select
+	users.id
+from
+	users
+where
+	trunc(updated_at) = '2019-08-06'
+```
+
+
 ## Ресурсы
 
 1. [Database: Query Builder](https://laravel.com/docs/5.3/queries)
