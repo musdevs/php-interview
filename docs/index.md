@@ -40,6 +40,7 @@
 ## Базы данных
 * MySQL
 * [PostgreSQL](database/postgre.md)
+* [Oracle](database/oracle.md)
 * Memcached
 * Clickhouse
 * Redis
