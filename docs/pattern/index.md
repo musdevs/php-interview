@@ -1,6 +1,6 @@
 # Шаблоны проектирования
 
-## 1. Порождающие
+## [1. Порождающие](docs/pattern/creational.md)
 
 * **Abstract Factory (Абстрактная фабрика)**
 * **Factory Method (Фабричный метод)**
@@ -32,50 +32,9 @@
 * **Template Method (Шаблонный метод)**
 * **Visitor (Посетитель)**
 
-## Порождающие
-
-### Abstract Factory (Абстрактная фабрика)
-
-Применяется для создания семейств продуктов. Объявляется общий интерфейс, в котором объявляются
-фабричные методы, возвращяющие экземпляры классов. Например, объявляем интерфейс абстрактной
-фабрики движков рендеринга: 
-
-```php
-interface TemplateFactory
-{
-    public function createTitleTemplate(): TitleTemplate;
-    public function createPageTemplate(): PageTemplate;
-}
-```
-
-Фабрика шаблонов Twig:
-```php
-class TwigTemplateFactory implements TemplateFactory
-{
-    public function createTitleTemplate(): TitleTemplate
-    {
-        return new TwigTitleTemplate();
-    }
-
-    public function createPageTemplate(): PageTemplate
-    {
-        return new TwigPageTemplate();
-    }}
-```
-
-```php
-function templateRenderer(TemplateFactory $factory)
-{
-    $titleTemplate = $factory->createTitleTemplate();
-    $pageTemplate = $factory->createPageTemplate();
-
-    print($pageTemplate->render($titleTemplate));
-}
-```
-
-```php
-templateRenderer(new TwigTemplateFactory());
-```
+## [4. Другие шаблоны](docs/pattern/other.md)
+* **HMVC (Hierarchical model–view–controller)**
 
 ## Ресурсы
-* (DesignPatternsPHP)[https://github.com/domnikl/DesignPatternsPHP]
+* [DesignPatternsPHP](https://github.com/domnikl/DesignPatternsPHP)
+* [Паттерны проектирования](https://refactoring.guru/ru/design-patterns)
