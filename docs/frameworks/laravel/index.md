@@ -5,6 +5,7 @@
 1. [Database](database.md)
 2. [How-to](howto.md)
 3. [Сервис-контейнер](service_container.md)
+4. [Структура локального пакета](package_structure.md)
 
 # Ресурсы
 
