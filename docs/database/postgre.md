@@ -100,6 +100,19 @@ services:
       - "POSTGRES_PASSWORD=${DB_PASSWORD}"
 ```
 
+Выполнить внешний скрипт в Postgre внутри контейнера
+
+```bash
+docker-compose exec -T postgres psql --username=app --dbname=app < ./script.sql
+```
+
+Сделать дамп
+
+```bash
+docker-compose exec -T postgres pg_dump --user=app --dbname=app > /tmp/dump.sql
+```
+
+
 ## Ресурсы
 
 1. [Настройка Docker-контейнера для PostgreSQL на docs.docker.com](https://docs.docker.com/samples/library/postgres/)
