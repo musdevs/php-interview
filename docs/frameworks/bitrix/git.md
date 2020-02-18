@@ -37,15 +37,37 @@
 
 ## Инициализация репозитория во внешнем каталоге
 
+### Способ 1
+
+```bash
+cd /home/bitrix/www
+git init --separate-git-dir=/opt/my/bitrix24/gitrepo
+```
+
+Недостатки:
+ - в рабочем каталоге будет файл .git
+
+Преимущества:
+ - не нужно указывать --git-dir 
+
+### Способ 2
+
 ```bash
 mkdir /opt/my/bitrix24/gitrepo
 git --git-dir=/opt/my/bitrix24/gitrepo --work-tree=/home/bitrix/www init
 ```
 
+Недостатки:
+ - нужно указывать --git-dir и --work-tree
+
+Преимущества:
+ - в рабочем каталоге не будет никаких следов репозитория
+
 Чтобы каждый раз не указывать каталог --git-dir можно сделать:
 ```bash
 echo "gitdir: /opt/my/bitrix24/gitrepo" > .git
 ```
+
 
 Команды:
 ```bash
