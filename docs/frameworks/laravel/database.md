@@ -75,3 +75,5 @@ where
 3. [Raw DB Operations with Laravel Cheat Sheet](http://laragems.com/post/raw-db-operations-with-laravel-cheat-sheet)
 4. [20 хитростей в Laravel Eloquent о которых вы не знали](https://laravelnews.ru/20-khitrostey-v-laravel-eloquent-o-kotorykh-vy-ne-znali)
 5. [10 Hidden Laravel Eloquent Features You May Not Know](https://medium.com/@JinoAntony/10-hidden-laravel-eloquent-features-you-may-not-know-efc8ccc58d9e)
+6. [How to use Eloquent ORM migrations outside Laravel](https://siipo.la/blog/how-to-use-eloquent-orm-migrations-outside-laravel)
+7. [Use Eloquent without Laravel](https://medium.com/@kshitij206/use-eloquent-without-laravel-7e1c73d79977)

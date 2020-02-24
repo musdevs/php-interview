@@ -35,3 +35,4 @@ git merge hotfix_branch
 1. [Про Git, Github и Gitflow простыми словами](https://proglib.io/p/git-github-gitflow/)
 2. [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 3. [Git в реальной жизни](https://blog.regolit.com/2016/10/26/git-in-real-life)
+4. [Модель ветвления Gitflow](https://bitworks.software/2019-03-12-gitflow-workflow.html)
