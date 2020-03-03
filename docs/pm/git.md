@@ -36,3 +36,5 @@ git merge hotfix_branch
 2. [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 3. [Git в реальной жизни](https://blog.regolit.com/2016/10/26/git-in-real-life)
 4. [Модель ветвления Gitflow](https://bitworks.software/2019-03-12-gitflow-workflow.html)
+5. [GitLab Flow](https://habr.com/ru/company/softmart/blog/316686/)
+6. [Branching стратегии в Git](https://bool.dev/blog/detail/git-branching-strategies)
