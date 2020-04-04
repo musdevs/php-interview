@@ -72,14 +72,15 @@
 ### [Битрикс](frameworks/bitrix/index.md)
 * [Настройка Docker для Битрикс](frameworks/bitrix/docker.md)
 
-## Системное администрирование Linux
+## [Системное администрирование Linux](linux/index.md)
 * [Общая информация об операционной системе](linux/info.md)
 * [Cron](linux/cron.md)
 * [Безопасность](linux/security.md)
 * [Debian](linux/debian/index.md)
-* Сеть
+* [Сеть](linux/network/index.md)
     * [Network diagnostic in Linux](linux/network/debug.md)
     * [Network manager](linux/network/network_manager.md)
+    * [Маршрутизация](linux/network/route.md)
 
 ## [Сервисы для обучения](education/index.md)
 
