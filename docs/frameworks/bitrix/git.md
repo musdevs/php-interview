@@ -34,6 +34,19 @@
 /bitrix/site_checker_*.log
 ```
 
+## Порядок инициализации репозитория
+
+```bash
+cd /home/bitrix/www
+git init
+git config core.autocrlf false
+git config user.name "Dev"
+git config user.email "dev@example.com"
+git add .
+git commit -m 'initial commit'
+```
+
+
 ## Инициализация репозитория во внешнем каталоге
 
 ### Способ 1
