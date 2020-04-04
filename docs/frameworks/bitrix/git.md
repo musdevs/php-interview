@@ -23,7 +23,6 @@
 
 !/robots.txt
 /sitemap*.xml
-/urlrewrite.php
 /upload
 
 /bitrix/php_interface/dbconn.php
