@@ -38,3 +38,4 @@ git merge hotfix_branch
 4. [Модель ветвления Gitflow](https://bitworks.software/2019-03-12-gitflow-workflow.html)
 5. [GitLab Flow](https://habr.com/ru/company/softmart/blog/316686/)
 6. [Branching стратегии в Git](https://bool.dev/blog/detail/git-branching-strategies)
+7. [Правильные способы исключения файлов в Git](https://habr.com/ru/post/202696/)
