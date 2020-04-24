@@ -110,6 +110,28 @@ docker run -d --rm --name=my-app -p 38000:80 -v $(pwd):/var/www/html --link my-d
 docker exec -it <mycontainer> kill -USR2 1
 ```
 
+### Автоматический запуск контейнеров
+
+В каталог /etc/systemd/system разместить файл сервиса docker-compose-my-app.service
+```
+[Unit]
+Description=Docker Compose Application Service
+Requires=docker.service
+After=docker.service
+
+[Service]
+WorkingDirectory=/home/bitrix/my-app
+ExecStart=/usr/bin/docker-compose -f /home/bitrix/my-app/docker-compose.yml up
+ExecStop=/usr/bin/docker-compose -f /home/bitrix/my-app/docker-compose.yml down
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitInterval=60
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
+```
+
 ## Ресурсы
 
 1. [Создание вашего первого PHP-приложения с помощью Docker](https://leanpub.com/first-php-docker-application-ru)

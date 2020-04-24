@@ -24,6 +24,11 @@ git remote -v
 git fetch [remote-name]
 ```
 
+### Забрать определенную ветку
+
+```
+git clone --single-branch --branch <branch-name> <url>
+```
 
 ## Ресурсы
 1. [Pro Git book (ru)](https://git-scm.com/book/ru/v2)
