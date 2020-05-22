@@ -30,3 +30,5 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/upd
 ## Ресурсы
 
 1. [Создание собственных модулей](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=101&CHAPTER_ID=1014)
+2. [Описание маркетплейса](https://marketplace.bitrix24.site/)
+3. [Маркетинговые возможности в Приложениях24](https://vendors.bitrix24.ru/doc/ru/rest_marketing.php)

@@ -1,5 +1,7 @@
 # Партнерская программа
 
+## [Статусы партнеров](https://partners.1c-bitrix.ru/sales/certification/)
+
 ## Компетенции
 
 [Компетенции партнеров Битрикс24](https://partners24.1c-bitrix.ru/program/competence/)

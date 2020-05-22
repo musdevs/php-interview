@@ -30,5 +30,12 @@ git fetch [remote-name]
 git clone --single-branch --branch <branch-name> <url>
 ```
 
+### Отменить слияние
+
+```
+git reset --hard HEAD^
+```
+
 ## Ресурсы
 1. [Pro Git book (ru)](https://git-scm.com/book/ru/v2)
+2. 
