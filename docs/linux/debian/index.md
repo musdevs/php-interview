@@ -43,6 +43,11 @@ apt-get install net-tools
 apt-get install iproute2
 ```
 
+Установить ping
+```bash
+apt-get install iputils-ping
+```
+
 Установить ps
 ```bash
 apt-get install procps
