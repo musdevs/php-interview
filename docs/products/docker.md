@@ -132,6 +132,23 @@ StartLimitBurst=3
 WantedBy=multi-user.target
 ```
 
+## Добавление русской локали
+https://ru.stackoverflow.com/a/949930
+```
+FROM php:7.2-apache
+RUN apt-get update && apt-get install -y locales
+
+# Locale
+RUN sed -i -e \
+  's/# ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen \
+   && locale-gen
+
+ENV LANG ru_RU.UTF-8
+ENV LANGUAGE ru_RU:ru
+ENV LC_LANG ru_RU.UTF-8
+ENV LC_ALL ru_RU.UTF-8
+```
+
 ## Ресурсы
 
 1. [Создание вашего первого PHP-приложения с помощью Docker](https://leanpub.com/first-php-docker-application-ru)
