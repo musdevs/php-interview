@@ -4,12 +4,9 @@
 ```
 docker run --rm --interactive --tty \
   --volume $PWD:/app \
-  --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp \
+  --volume ${COMPOSER_HOME:$HOME/.composer}:/tmp \
+  --user $(id -u):$(id -g) \
   composer create-project --prefer-dist laravel/laravel pwa
-```
-
-```
-sudo chown -R $USER:$USER pwa
 ```
 
 Запуск веб-сервера

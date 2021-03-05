@@ -1,5 +1,34 @@
 # Bitrix REST API
 
+## Программное создание веб-хука
+
+```php
+$result = \Bitrix\Rest\APAuth\PasswordTable::add(
+	array(
+		'USER_ID' => $USER->getId(),
+		'PASSWORD' => \Bitrix\Rest\APAuth\PasswordTable::generatePassword(),
+		'DATE_CREATE' => new \Bitrix\Main\Type\DateTime(),
+		'TITLE' => 'Интеграция с Битрикс24',
+		'COMMENT' => '',
+	)
+);
+
+$password = \Bitrix\Rest\APAuth\PasswordTable::getRowById($result->getId());
+
+$url = '/rest/' . $password['USER_ID'] . '/' . $password['PASSWORD'] . '/module.entity.method';
+
+echo $url, PHP_EOL;
+
+$scope = 'myscope';
+$passwordId = $result->getId();
+
+$result = \Bitrix\Rest\APAuth\PermissionTable::add(array(
+	'PASSWORD_ID' => $passwordId,
+	'PERM' => $scope,
+));
+
+```
+
 ## Получение доступа для внешнего серверного приложения
 
 refresh_token сохраняет свою актуальность в течение 28 дней

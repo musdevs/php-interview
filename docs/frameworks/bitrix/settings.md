@@ -7,7 +7,7 @@
 ```php
 <?php
 return array (
-    "https_request" => array("value" => true),
+  "https_request" => array("value" => true),
 );
  ?>
 ```
