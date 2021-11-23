@@ -52,12 +52,3 @@ apt-get install iputils-ping
 ```bash
 apt-get install procps
 ```
-
-## Управление процессами
-
-Перезапуск php-fpm
-```bash
-ps -ef | grep fpm
-kill -USR2 <master_pid>
-```
-

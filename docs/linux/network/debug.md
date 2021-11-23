@@ -35,6 +35,30 @@ t - протокол tcp
 telnet 192.168.1.1 9000
 ```
 
+Открытые порты в контейнере:
+
+```shell
+sudo nsenter -t PID -n netstat -lnp
+```
+
+где PID - id процесса контейнера, найти можно так:
+
+```shell
+podman container inspect -f '{{.State.Pid}}' my-container
+```
+
+Проверить открыт ли порт
+```bash
+nc -zvw3 ya.ru 443
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Connected to 87.250.250.242:443.
+Ncat: 0 bytes sent, 0 bytes received in 0.02 seconds.
+```
+
+-v, --verbose              Set verbosity level (can be used several times)
+-w, --wait <time>          Connect timeout
+-z                         Zero-I/O mode, report connection status only
+
 
 ## Ресурсы
 

@@ -1,7 +1,7 @@
 # Node.js
 
 Для установки нескольких версий Node.js можно использовать
-[nvm](https://github.com/creationix/nvm) (Node Version Manager).
+[nvm](https://github.com/nvm-sh/nvm) (Node Version Manager).
 Зачем? Да чтобы установить какие-то старые зависимости.
 
 Например, в package-lock.json зависимость node-sass версии "4.7.2"

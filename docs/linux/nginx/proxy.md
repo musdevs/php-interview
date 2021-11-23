@@ -21,6 +21,9 @@ server {
                 proxy_pass https://127.0.0.1:10005;
                 proxy_set_header Host $host;
                 proxy_ssl_name $host;
+
+                # for debugging
+                proxy_read_timeout 1800;
         }
 }
 ```

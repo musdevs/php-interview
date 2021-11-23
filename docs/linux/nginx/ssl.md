@@ -74,5 +74,3 @@ server {
 certbot certonly --nginx
 certbot certificates
 
-
-

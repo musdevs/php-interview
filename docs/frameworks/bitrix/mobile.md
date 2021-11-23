@@ -12,3 +12,5 @@ https://www.mediawiki.org/wiki/Manual:MIME_type_detection
 ## Ссылки
 
 - [Разработка решений для мобильного приложения Битрикс24](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=99&LESSON_ID=10277&LESSON_PATH=8771.5378.10277)
+
+- [Добавление меню в мобильном приложении б24](https://snippets.cacher.io/snippet/39a3a36c87f41de34b80)

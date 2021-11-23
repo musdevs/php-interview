@@ -20,6 +20,17 @@ SHOW INDEX IN my_table;
 SHOW TABLE STATUS where name like 'my_table';
 ```
 
+Удалить все таблицы в БД:
+
+```shell
+mysql -N -e "\
+SELECT concat('DROP TABLE IF EXISTS ', table_schema, '.', table_name, ';') \
+  FROM information_schema.tables \
+  WHERE table_schema = 'sitemanager';" > /tmp/drop_all_tables.sql
+
+mysql sitemanager < /tmp/drop_all_tables.sql
+```
+
 ## Пользователи
 
 Запустить клиента mysql, чтобы он не запоминал в истории команды содержащие IDENTIFIED и PASSWORD

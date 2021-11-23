@@ -13,3 +13,22 @@ Generate model class App\Model\Category\Item and migration
 ```bash
 php artisan make:model Model/Category/Item -m
 ```
+
+
+		// если исключить всех недействующих
+//		$query->whereHas('field', function ($q) {
+//			$q->where('UF_CRM_MDCUSTSTATUS', '=', 'Действует');
+//		});
+
+		// выбрать Статус
+		$query->with([
+			'contractorFields',
+		]);
+
+//		$query->with([
+//			'contractor',
+//			'field' => function($query) {
+//				$query->select('VALUE_ID', 'UF_CRM_MDCUSTSTATUS');
+//			}
+//		]);
+

@@ -3,6 +3,7 @@
 ## Программное создание веб-хука
 
 ```php
+global $USER;
 $result = \Bitrix\Rest\APAuth\PasswordTable::add(
 	array(
 		'USER_ID' => $USER->getId(),
@@ -13,14 +14,15 @@ $result = \Bitrix\Rest\APAuth\PasswordTable::add(
 	)
 );
 
-$password = \Bitrix\Rest\APAuth\PasswordTable::getRowById($result->getId());
+$passwordId = $result->getId();
+
+$password = \Bitrix\Rest\APAuth\PasswordTable::getRowById($passwordId);
 
 $url = '/rest/' . $password['USER_ID'] . '/' . $password['PASSWORD'] . '/module.entity.method';
 
 echo $url, PHP_EOL;
 
 $scope = 'myscope';
-$passwordId = $result->getId();
 
 $result = \Bitrix\Rest\APAuth\PermissionTable::add(array(
 	'PASSWORD_ID' => $passwordId,
