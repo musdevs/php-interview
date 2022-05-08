@@ -13,3 +13,8 @@ find . -type f -mtime -10 -ls
 find . -type f -mtime +30 -ls
 2234183    4 -rw-rw-r--   1 user   user          7 Jun 16 22:19 ./service.php
 ```
+
+Проверить права на каталог рекурсивно
+```shell
+namei -l ./tmp
+```

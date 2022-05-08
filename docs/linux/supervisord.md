@@ -5,7 +5,7 @@
 $ systemctl enable supervisord
 ```
 
-2. Добавляем конфиг в папку /etc/supervisord.d/hello-world.ini 
+2. Добавляем конфиг в папку /etc/supervisord.d/hello-world.ini
 ```
 [program:hello-world]
 command=/usr/bin/php /var/www/worker.php
@@ -29,7 +29,7 @@ $ systemctl enable supervisord
 $ systemctl start supervisord
 ```
 
-5. Проверяем состояние 
+5. Проверяем состояние
 
 ```bash
 $ supervisorctl status
@@ -47,7 +47,19 @@ supervisorctl reread
 supervisorctl update
 ```
 
-8. Помощь по остальным командам
+8. Остановить команду
+
+```bash
+supervisorctl stop queue_worker:queue_worker_00
+```
+
+9. Запустить команду
+
+```bash
+supervisorctl start queue_worker:queue_worker_00
+```
+
+10. Помощь по остальным командам
 
 ```bash
 supervisorctl help

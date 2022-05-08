@@ -9,6 +9,5 @@ $rootActivity->setVariable('bizprocCreator', 'user_' . $USER->GetID());
 
 ## Запись в журнал бп
 ```php
-$rootActivity = $this->GetRootActivity();
-$rootActivity->WriteToTrackingService('Тест');
+    $this->GetRootActivity()->WriteToTrackingService('Тест');
 ```

@@ -4,3 +4,18 @@ Fixing the error *"Fatal error: Allowed memory size of 1610612736 bytes exhauste
 ```
 COMPOSER_MEMORY_LIMIT=-1 composer require vendor/package
 ```
+
+## Добавить авторизацию к репозиторию
+
+В файле ~/.config/composer/auth.json добавить
+
+```json
+{
+    "http-basic": {
+        "gitlab.cplsb.ru": {
+            "username": "user",
+            "password": ""
+        }
+    }
+}
+```

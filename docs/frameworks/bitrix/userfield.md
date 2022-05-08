@@ -1,5 +1,24 @@
 # Пользовательские поля
 
+## Краткое описание полей сущности
+```
+SELECT
+	buf.ID,
+	buf.FIELD_NAME,
+	buf.USER_TYPE_ID,
+	buf.MULTIPLE,
+	buf.MANDATORY,
+	bufl.EDIT_FORM_LABEL
+FROM
+	b_user_field buf
+INNER JOIN b_user_field_lang bufl on
+	bufl.USER_FIELD_ID = buf.ID
+WHERE
+	buf.ENTITY_ID = 'HLBLOCK_77'
+	AND bufl.LANGUAGE_ID = 'ru'
+ORDER BY buf.SORT, buf.ID
+```
+
 ## Найти ID поля по наименованию
 ```sql
 SELECT

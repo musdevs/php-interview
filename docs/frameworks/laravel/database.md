@@ -67,6 +67,65 @@ where
 	trunc(updated_at) = '2019-08-06'
 ```
 
+## Оптимизация
+
+### Используйте pluck
+
+При использовании pluck не создаются объекты модели, поэтому работает быстрее
+
+#### Если нужно одно поле
+
+```php
+$posts = Post::pluck('title', 'slug');
+// [ 0 => title, 1 => title ]
+```
+
+#### Если нужно два поля
+
+```php
+$posts = Post::pluck('title', 'slug');
+// [ slug => title, slug => title ]
+```
+
+### Количество записей
+
+```php
+$posts = Post::count();
+// select * from posts
+```
+
+```php
+$posts = Post::all()->count();
+// select count(*) from posts
+```
+
+### Избегать N+1 запросов, использовать жадную загрузку
+
+```php
+// избегайте делать так
+$posts = Post::all();
+// лучше делайте так
+$posts = Post::with(['author'])->get();
+```
+
+```sql
+select * from posts
+select * from authors where id in( { post1.author_id }, { post2.author_id }, { post3.author_id }, { post4.author_id }, { post5.author_id } )
+```
+
+Для вложенных отношений
+
+```php
+$posts = Post::with(['author.team'])->get();
+```
+
+Выполнится 3 запроса
+
+```sql
+select * from posts // предположим, что запрос вернул 5 сообщений
+select * from authors where id in( { post1.author_id }, { post2.author_id }, { post3.author_id }, { post4.author_id }, { post5.author_id } )
+select * from teams where id in( { author1.team_id }, { author2.team_id }, { author3.team_id }, { author4.team_id }, { author5.team_id } )
+```
 
 ## Ресурсы
 
@@ -77,3 +136,4 @@ where
 5. [10 Hidden Laravel Eloquent Features You May Not Know](https://medium.com/@JinoAntony/10-hidden-laravel-eloquent-features-you-may-not-know-efc8ccc58d9e)
 6. [How to use Eloquent ORM migrations outside Laravel](https://siipo.la/blog/how-to-use-eloquent-orm-migrations-outside-laravel)
 7. [Use Eloquent without Laravel](https://medium.com/@kshitij206/use-eloquent-without-laravel-7e1c73d79977)
+8. [18 советов по оптимизации запросов к базе данных](https://laravel.demiart.ru/laravel-database-queries-optimization/)
