@@ -33,3 +33,6 @@
 ## Лицензии
 
 [NFR-лицензия Битрикс24 (облачная версия)](https://partners24.1c-bitrix.ru/partnership/nfr.php)
+
+
+[FAQ: Партнерская программа Битрикс24](https://partners24.1c-bitrix.ru/support/faq/)

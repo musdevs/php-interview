@@ -20,11 +20,10 @@ sudo systemctl restrt sshd.service
 ss -tlnp | grep 21589
 ```
 
-11  dnf install nginx
-12  df -h
-13  firewall-cmd --permanent --add-port=80/tcp
-14  firewall-cmd --permanent --add-port=443/tcp
-15  firewall-cmd --reload
-16  sytemctl enable nginx
-17  systemctl enable nginx
-18  systemctl start nginx
+dnf install nginx
+df -h
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --reload
+systemctl enable nginx
+systemctl start nginx

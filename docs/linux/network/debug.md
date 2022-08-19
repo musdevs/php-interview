@@ -2,7 +2,17 @@
 
 Вывести IP-адреса хоста
 ```bash
+hostname -I
+```
+
+Вывести все IP-адреса хоста
+```bash
 hostname --all-ip-addresses
+```
+
+Вывести внешний IP-адреса хоста
+```bash
+curl ifconfig.co
 ```
 
 Проверить маршрут до хоста

@@ -2,7 +2,8 @@
 
 ## Query Builder
 
-Вывести исполняемый запрос ([см.](https://stackoverflow.com/questions/27753868/how-to-get-the-query-executed-in-laravel-5-dbgetquerylog-returning-empty-ar))
+### Вывести исполняемый запрос
+([см.](https://stackoverflow.com/questions/27753868/how-to-get-the-query-executed-in-laravel-5-dbgetquerylog-returning-empty-ar))
 ```php
 \DB::connection('my')->enableQueryLog();
 $result = \DB::connection('my')
@@ -21,13 +22,13 @@ $result = \DB::connection('my')
 print_r(\DB::connection('my')->getQueryLog());
 ```
 
-Вывести запрос в [Tinker](http://laragems.com/post/a-quick-way-to-display-a-sql-query-in-tinker)
+### Вывести запрос в [Tinker](http://laragems.com/post/a-quick-way-to-display-a-sql-query-in-tinker)
 
 ```php
 \DB::listen(function ($query) { dump($query->sql); dump($query->bindings); dump($query->time); });
 ```
 
-Условие по дате без учета времени
+### Условие по дате без учета времени
 ```php
 \DB::connection('my')
     ->table('users')
@@ -126,6 +127,68 @@ select * from posts // предположим, что запрос вернул 
 select * from authors where id in( { post1.author_id }, { post2.author_id }, { post3.author_id }, { post4.author_id }, { post5.author_id } )
 select * from teams where id in( { author1.team_id }, { author2.team_id }, { author3.team_id }, { author4.team_id }, { author5.team_id } )
 ```
+
+## Макросы
+
+### Макрос whereLike
+
+```php
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        /**
+        * Filter the query using a LIKE expression.
+        * $query->whereLike('name', 'Ivan');
+        */
+        Builder::macro('whereLike', function($key, $value) {
+            return Builder::where($key, 'LIKE', "{$value}%");
+        });
+    }
+}
+```
+
+### Макрос second
+
+```php
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        /**
+        * Retrieve the second item in the results.
+        * $query->second();
+        */
+        Builder::macro('second', function($key, $value) {
+            return $this->offset(1)->limit(1)->first();
+        });
+    }
+}
+```
+
+### Макрос toRawSql
+
+```php
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        /**
+        * Merge query bindings into raw SQL string, then dump it and die.
+        * $query->toRawSql();
+        */
+        Builder::macro('toRawSql', function($key, $value) {
+            dd(vsprintf(
+                str_replace(
+                    ['?'], ['\'%s\''], $this->toSql()
+                ),
+                $this->getBindings()
+            ));
+        });
+    }
+}
+```
+
 
 ## Ресурсы
 
