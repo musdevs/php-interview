@@ -21,14 +21,14 @@ brw-rw----  1 root   disk    253,  48 Mar 12 17:37 vdd
 ```
 lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sr0     11:0    1 1024M  0 rom  
-vda    253:0    0  100G  0 disk 
+sr0     11:0    1 1024M  0 rom
+vda    253:0    0  100G  0 disk
 └─vda1 253:1    0  100G  0 part /
-vdb    253:16   0    2T  0 disk 
+vdb    253:16   0    2T  0 disk
 └─vdb1 253:17   0  1.5T  0 part /home
-vdc    253:32   0  500G  0 disk 
+vdc    253:32   0  500G  0 disk
 └─vdc1 253:33   0  500G  0 part /home/bitrix/www/bitrix/backup
-vdd    253:48   0    2T  0 disk 
+vdd    253:48   0    2T  0 disk
 ```
 
 
@@ -36,14 +36,14 @@ vdd    253:48   0    2T  0 disk
 ```
 lsblk --fs
 NAME   FSTYPE LABEL UUID                                 MOUNTPOINT
-sr0                                                      
-vda                                                      
+sr0
+vda
 └─vda1 ext4         ecab951b-56f3-4b3d-8245-bc9c4f4123fd /
-vdb                                                      
+vdb
 └─vdb1 ext4         af6a9faa-c274-434f-91d8-1406fd57b634 /home
-vdc                                                      
+vdc
 └─vdc1 ext4         e1d1bbcd-9867-4ac5-9864-e6eb87da3448 /home/bitrix/www/bitrix/backup
-vdd                                                      
+vdd
 ```
 
 
@@ -99,7 +99,7 @@ Model: Virtio Block Device (virtblk)
 Disk /dev/vda: 107GB
 Sector size (logical/physical): 512B/512B
 Partition Table: msdos
-Disk Flags: 
+Disk Flags:
 
 Number  Start   End    Size   Type     File system  Flags
  1      1049kB  107GB  107GB  primary  ext4         boot
@@ -109,7 +109,7 @@ Model: Virtio Block Device (virtblk)
 Disk /dev/vdb: 2147GB
 Sector size (logical/physical): 512B/512B
 Partition Table: msdos
-Disk Flags: 
+Disk Flags:
 
 Number  Start   End     Size    Type     File system  Flags
  1      1049kB  1611GB  1611GB  primary  ext4
@@ -119,18 +119,18 @@ Model: Virtio Block Device (virtblk)
 Disk /dev/vdc: 537GB
 Sector size (logical/physical): 512B/512B
 Partition Table: msdos
-Disk Flags: 
+Disk Flags:
 
 Number  Start   End    Size   Type     File system  Flags
  1      1049kB  537GB  537GB  primary  ext4
 
 
 Error: /dev/vdd: unrecognised disk label
-Model: Virtio Block Device (virtblk)                                      
+Model: Virtio Block Device (virtblk)
 Disk /dev/vdd: 2147GB
 Sector size (logical/physical): 512B/512B
 Partition Table: unknown
-Disk Flags: 
+Disk Flags:
 ```
 
 
@@ -156,17 +156,17 @@ Information: You may need to update /etc/fstab.
 
 
 ```
-lsblk 
+lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sr0     11:0    1 1024M  0 rom  
-vda    253:0    0  100G  0 disk 
+sr0     11:0    1 1024M  0 rom
+vda    253:0    0  100G  0 disk
 └─vda1 253:1    0  100G  0 part /
-vdb    253:16   0    2T  0 disk 
+vdb    253:16   0    2T  0 disk
 └─vdb1 253:17   0  1,5T  0 part /home
-vdc    253:32   0  500G  0 disk 
+vdc    253:32   0  500G  0 disk
 └─vdc1 253:33   0  500G  0 part /home/bitrix/www/bitrix/backup
-vdd    253:48   0    2T  0 disk 
-└─vdd1 253:49   0    2T  0 part 
+vdd    253:48   0    2T  0 disk
+└─vdd1 253:49   0    2T  0 part
 ```
 
 
@@ -185,29 +185,29 @@ Maximum filesystem blocks=2671771648
 16000 block groups
 32768 blocks per group, 32768 fragments per group
 8192 inodes per group
-Superblock backups stored on blocks: 
-	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
-	4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968, 
+Superblock backups stored on blocks:
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+	4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968,
 	102400000, 214990848, 512000000
 
-Allocating group tables: done                            
-Writing inode tables: done                            
+Allocating group tables: done
+Writing inode tables: done
 Creating journal (32768 blocks): done
-Writing superblocks and filesystem accounting information: done   
+Writing superblocks and filesystem accounting information: done
 ```
 
 ```
 sudo lsblk --fs
 NAME   FSTYPE LABEL   UUID                                 MOUNTPOINT
-sr0                                                        
-vda                                                        
+sr0
+vda
 └─vda1 ext4           ecab951b-56f3-4b3d-8245-bc9c4f4123fd /
-vdb                                                        
+vdb
 └─vdb1 ext4           af6a9faa-c274-434f-91d8-1406fd57b634 /home
-vdc                                                        
+vdc
 └─vdc1 ext4           e1d1bbcd-9867-4ac5-9864-e6eb87da3448 /home/bitrix/www/bitrix/backup
-vdd                                                        
-└─vdd1 ext4   b24disk 03a3e7c9-e375-441b-b722-a400f990b9e7 
+vdd
+└─vdd1 ext4   b24disk 03a3e7c9-e375-441b-b722-a400f990b9e7
 ```
 
 
@@ -229,3 +229,4 @@ Pass 4: Checking reference counts
 Pass 5: Checking group summary information
 b24disk: 11/131072000 files (0.0% non-contiguous), 8282274/524287744 blocks
 ```
+
