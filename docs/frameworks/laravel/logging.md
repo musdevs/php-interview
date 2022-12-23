@@ -2,7 +2,8 @@
 
 ## Форматирование логов в JSON:
 
-JSON-форматтер
+Есть 2 варианта для класса JSON-форматтера. Можно определить его в namespace App\Logging, а можно прямо в конфиге config/logging.php
+
 ```php
 <?php
 declare(strict_types = 1);

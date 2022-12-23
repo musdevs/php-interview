@@ -12,10 +12,17 @@ COMPOSER_MEMORY_LIMIT=-1 composer require vendor/package
 ```json
 {
     "http-basic": {
-        "gitlab.cplsb.ru": {
+        "host.local": {
             "username": "user",
             "password": ""
         }
     }
 }
+```
+
+## Локальная установка определенной версии
+
+```
+wget https://github.com/composer/composer/releases/download/1.8.6/composer.phar
+php composer.phar -V
 ```

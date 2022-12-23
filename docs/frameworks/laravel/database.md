@@ -25,7 +25,32 @@ print_r(\DB::connection('my')->getQueryLog());
 ### Вывести запрос в [Tinker](http://laragems.com/post/a-quick-way-to-display-a-sql-query-in-tinker)
 
 ```php
-\DB::listen(function ($query) { dump($query->sql); dump($query->bindings); dump($query->time); });
+\DB::listen(function ($query) {
+    dump($query->sql);
+    dump($query->bindings);
+    dump($query->time);
+});
+```
+
+### Логирование всех запросов
+
+```php
+// \app\Providers\AppServiceProvider.php
+
+use DB;
+use Log;
+
+public function boot()
+{
+    DB::listen(function ($query) {
+        Log::info(
+            $query->sql,
+            $query->bindings,
+            $query->time
+        );
+    });
+}
+
 ```
 
 ### Условие по дате без учета времени

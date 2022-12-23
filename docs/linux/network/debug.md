@@ -21,7 +21,7 @@ ip route get 192.168.1.1
 ```
 
 Вывести домен
-```shell script
+```shell
 host 10.10.1.1
 1.1.10.10.in-addr.arpa domain name pointer ltrus1capp04.example.com
 ```
@@ -32,7 +32,7 @@ ss -ltnp
 ```
 
 Или:
-```shell script
+```shell
 netstat -nlpt
 ```
 n - сетевые адреса в числовом виде

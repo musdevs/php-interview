@@ -129,6 +129,18 @@ git --no-pager log --oneline
 git log -S '@deprecated' -- local/app/Services/User.php
 ````
 
+#### Первый коммит ветки
+
+```shell
+git log master..otherBranch --oneline | tail -1
+```
+
+#### Список измененных файлов в диапазоне коммитов в каталоге
+
+```shell
+git diff-tree --name-only -r 61f37b513 HEAD src
+```
+
 #### Пользовательский формат истории
 
 ```shell
@@ -155,6 +167,12 @@ e55c67fb1 Thu Feb 10 20:38:41 2022 +0300 comment1
 | %cr      |   Дата коммитера, относительная|
 | %s       |   Комментарий|
 
+#### Список авторов коммитов
+
+```shell
+git log --pretty=format:"%ae" | sort -u
+```
+
 ### Ветки
 
 #### Имя текущей ветки
@@ -168,6 +186,53 @@ git rev-parse --abbrev-ref HEAD
 ```shell
 git branch -r --contains 434507
 ```
+
+#### Список отслеживаемых веток
+
+```shell
+git branch -vv
+* master     d3dbcae22 [origin/master] Pull request #148: Make some
+  rc/feature 4e4881f43 [origin/rc/feature: behind 6] Pull request #296: Make other
+```
+
+
+
+### Манипуляции с коммитами
+
+#### Перенос коммитов из другой ветки (git cherry-pick)
+
+Перенести коммит из одной ветки в другую
+
+```shell
+git checkout master
+git pull
+git checkout -b <новая ветка>
+git cherry-pick <sha коммита из другой ветки>
+```
+
+#### Склеивание коммитов
+
+Запустить интерактивный rebase для объединения 3 коммитов в один
+
+```
+git rebase -i HEAD~3
+```
+
+Оставить сообщение из первого
+
+```
+pick ab37583 Added feature 1.
+s 3ab2b83 Added feature 2.
+s bf43de1 Added feature 3.
+```
+
+Отправить изменения в удаленный репо:
+
+```shell
+git push --force
+```
+
+Подробнее [тут](https://htmlacademy.ru/blog/git/how-to-squash-commits-and-why-it-is-needed)
 
 ## Ресурсы
 1. [Pro Git book (ru)](https://git-scm.com/book/ru/v2)
