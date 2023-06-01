@@ -65,4 +65,6 @@ PUT /books/_mapping
 }
 ```
 
-[Response body](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html#search-api-response-body)
+* [Response body](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html#search-api-response-body)
+
+* [Глоссарий ElasticSearch](https://habr.com/ru/sandbox/115014/)

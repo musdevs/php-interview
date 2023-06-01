@@ -55,3 +55,7 @@ new Vue({
   render: h => h(App),
 }).$mount('#app');
 ```
+
+## Ресурсы
+
+[Бесплатный курс по Vue.js](https://www.youtube.com/playlist?list=PLvTBThJr861yMBhpKafII3HZLAYujuNWw)

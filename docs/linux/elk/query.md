@@ -2,10 +2,23 @@
 
 ### Полнотекстовые запросы
 
+#### По всем полям
+
+```
+GET partners/_search
+{
+  "query": {
+      "query_string": {
+        "query": "*гк*"
+      }
+  }
+}
+```
+
 #### Prefix query
 
 ```
-GET omni_partners/_search
+GET partners/_search
 {
 "query": {
   "prefix": {
@@ -18,8 +31,6 @@ GET omni_partners/_search
 "Клиника Доктора Шаталова"
 "Доктор Столетов"
 ```
-
-
 
 ### Term-запросы
 
@@ -42,7 +53,7 @@ GET /amazon_products/products/_search
 ### Искать в поле хотя бы одно слово ("operator": "or")
 
 ```
-GET omni_partners/_search
+GET partners/_search
 {
   "query": {
     "match": {
@@ -58,7 +69,7 @@ GET omni_partners/_search
 ### Искать в поле все слова ("operator": "and")
 
 ```
-GET omni_partners/_search
+GET partners/_search
 {
   "query": {
     "match": {
@@ -74,7 +85,7 @@ GET omni_partners/_search
 ### Задать минимальное кол-во совпадающих термов (2 из 3)
 
 ```
-GET omni_partners/_search
+GET partners/_search
 {
   "query": {
     "match": {
@@ -90,7 +101,7 @@ GET omni_partners/_search
 ### Нечеткость
 
 ```
-GET omni_partners/_search
+GET partners/_search
 {
   "query": {
     "match": {
@@ -107,3 +118,59 @@ GET omni_partners/_search
 Добавит документы с неполным совпадением слов. Например, "аптека", "аптеки" и т.д.
 
 fuzziness: 0, 1, 2, "AUTO" - чем больше значение, тем больше выборка
+
+### Сложные запросы ИЛИ
+
+```
+GET partners/_search
+{
+  "query": {
+     "_source": [ "id", "name" ],
+    "bool": {
+      "should": [
+        {
+          "query_string": {
+            "query": "*гк*"
+          }
+        },
+        {
+          "query_string": {
+            "default_field": "name",
+            "query": "*гк*",
+            "boost": 2
+          }
+        },
+        {
+          "term": {
+            "name": "гк"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+"boost": 2 - увеличение веса условия
+
+term-запросы выдают более высокий SCORE, чем query_string
+
+### Фильтры в запросах
+
+И поисковый запрос (query), и фильтр (filter) принимают на вход запросы в одном формате, но с той лишь разницей, что запросы, написанные внутри filter, не влияют на итоговое значение _score. Подробнее см. в [Строим продвинутый поиск с ElasticSearch](https://dou.ua/lenta/columns/building-advanced-search-with-elasticsearch/):
+
+```
+GET partners/_search
+{
+    "size": 100,
+    "query": {
+        "bool": {
+            "filter": {
+                "term": {
+                    "isOnlyAdults": true
+                }
+            }
+        }
+    }
+}
+```

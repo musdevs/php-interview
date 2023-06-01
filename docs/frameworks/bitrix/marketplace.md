@@ -27,6 +27,22 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/upd
 \CUpdateClientPartner::__RunUpdaterScript($path, $strError, $updateDirFrom, $moduleID);
 ```
 
+## Демо-режим
+
+### Декодирование include.php
+
+```php
+$a = array(
+  'ZXhwaXJl' . 'X21' . 'lc3' . 'NfY3V' . 'z' . 'dG' . '9tMg==',
+);
+
+echo '$ar = array(', PHP_EOL;
+foreach($a as $i => $item) {
+	echo '  ', $i, ' => \'', base64_decode($item), '\',', PHP_EOL;
+}
+echo ');', PHP_EOL;
+```
+
 ## Ресурсы
 
 1. [Создание собственных модулей](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=101&CHAPTER_ID=1014)
