@@ -53,6 +53,18 @@ du -h --max-depth=1 . | sort -h
 namei -l ./tmp
 ```
 
+### Установить rw-права на все файлы
+
+```shell
+find . -type f -exec setfacl -R -m u:username:rw {} \;
+```
+
+### Установить rwx-права на все директории
+
+```shell
+find . -type d -exec setfacl -R -m u:username:rwx {} \;
+```
+
 ## Очистка диска
 
 Запись нулей в раздел /dev/sda1:
@@ -65,4 +77,11 @@ dd if=/dev/zero of=/dev/sda1
 
 ```shell
 dd if=/dev/urandom of=/dev/sda1
+```
+
+
+Список владельцев директорий
+
+```
+sudo find . -type d ! -path "./vendor/*" | xargs ls -ldn | awk '{ print $3 " " $4 }' | uniq
 ```

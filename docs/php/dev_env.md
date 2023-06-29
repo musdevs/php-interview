@@ -23,8 +23,9 @@
    LISTEN    0         50                 0.0.0.0:9001             0.0.0.0:*
    ```
 7. Подключить журнал XDebug можно ini-параметром xdebug.remote_log = /var/log/xdebug.log
- 
+
 ## Ресурсы
 1. [PhpStorm + Docker + Xdebug](https://blog.denisbondar.com/post/phpstorm_docker_xdebug)
 2. [Как подружить PHPstorm, xDebug и удаленные ветки, собранные через Docker](https://habr.com/ru/post/423337/)
 3. [Отладка удаленного xdebug за NAT](http://tokarchuk.ru/2017/07/remote-xdebug-behind-nat/)
+4. [Xdebug - Supported Versions and Compatibility](https://xdebug.org/docs/compat#versions)
