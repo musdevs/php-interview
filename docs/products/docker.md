@@ -78,9 +78,17 @@ docker run -d --rm --name=my-app -p 38000:80 -v $(pwd):/var/www/html --link my-d
 * docker tag создает тег для образа (локальному или в реестре).
 
 ### Жизненный цикл контейнеров
-* docker create создает контейнер, но не запускает его.
-* docker run создает и запускает контейнер за одну операцию.
-* docker rm удаляет контейнер.
+
+#### docker create создает контейнер, но не запускает его.
+
+#### docker run создает и запускает контейнер за одну операцию.
+
+#### docker rm удаляет контейнер.
+
+##### Удалить все контейнеры, созданные из определенного образа
+```
+docker ps -aq -f ancestor=php:8.2-cli | xargs docker rm
+```
 
 ### Запуск и остановка контейнеров
 * docker start запускает контейнер, чтобы он работал.
@@ -92,12 +100,36 @@ docker run -d --rm --name=my-app -p 38000:80 -v $(pwd):/var/www/html --link my-d
 * docker attach подключается к запущенному контейнеру.
 
 ### Информация о контейнере
-* docker ps показывает запущенные контейнеры.
-* docker logs получает логи из контейнера.
-* docker inspect  показывает всю информацию о контейнере.
-* docker port показывает открытый порт контейнера.
-* docker stats показывает статистику использования ресурсов контейнеров.
-* docker diff показывает измененные файлы в файловой системе контейнера.
+
+#### docker ps показывает список контейнеров.
+
+##### Запущенные контейнеры
+```
+docker ps
+```
+
+##### Все контейнеры, включая остановленные
+```
+docker ps -a
+```
+
+##### Контейнеры, созданные из образа
+```
+docker ps -a -f ancestor=php:8.2-cli
+CONTAINER ID   IMAGE         COMMAND                  CREATED       STATUS                   PORTS     NAMES
+b31a9f90f9da   php:8.2-cli   "docker-php-entrypoi…"   4 weeks ago   Exited (0) 4 weeks ago             inspiring_archimedes
+5db05cf07b36   php:8.2-cli   "docker-php-entrypoi…"   4 weeks ago   Exited (0) 4 weeks ago             blissful_beaver
+a9708e2ddac2   php:8.2-cli   "docker-php-entrypoi…"   4 weeks ago   Exited (0) 4 weeks ago             mystifying_galois
+62850982a373   php:8.2-cli   "docker-php-entrypoi…"   4 weeks ago   Exited (0) 4 weeks ago             angry_nobel
+e41acbad0530   php:8.2-cli   "docker-php-entrypoi…"   4 weeks ago   Exited (1) 4 weeks ago             modest_bardeen
+6c56592f3d5c   php:8.2-cli   "docker-php-entrypoi…"   4 weeks ago   Exited (0) 4 weeks ago             eager_chatelet
+```
+
+#### docker logs получает логи из контейнера.
+#### docker inspect  показывает всю информацию о контейнере.
+#### docker port показывает открытый порт контейнера.
+#### docker stats показывает статистику использования ресурсов контейнеров.
+#### docker diff показывает измененные файлы в файловой системе контейнера.
 
 ### Информация о сетях
 * docker network ls показывает список сетей
