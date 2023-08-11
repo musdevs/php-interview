@@ -115,6 +115,13 @@ git diff --name-only --cached
 git checkout -- .
 ```
 
+### Изменения
+
+### Статус игнорируя изменённые атрибуты файла (chmod)
+```
+git -c core.fileMode=false status
+```
+
 ### История
 
 #### История в одну строчку и в стандартный вывод STDOUT
