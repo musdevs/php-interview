@@ -40,6 +40,7 @@ https://fonts.google.com/
 https://webfonts.pro/
 https://www.myfonts.com/pages/whatthefont - поиск по картинке
 https://www.fontspring.com/
+https://fonts-online.ru/
 
 Для сайта выбираются как правило 2 шрифта
 для заголовков - по стилистике сайта
