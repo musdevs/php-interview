@@ -16,6 +16,7 @@ https://pixabay.com/
 
 https://unsplash.com/
 https://pixels.com/
+https://www.freepik.com/
 
 Alt - фигура из центра
 Shift - фигура пропорциональная

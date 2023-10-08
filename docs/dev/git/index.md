@@ -1,5 +1,19 @@
 # Git
 
+## Процесс разработки
+
+### Создание локальной ветки для разработки
+
+```
+git checkout -b bugfix/product/TASK-9999-short-descr origin/release/3.7
+```
+
+### Передача локальной ветки в удаленный репозиторий
+
+```
+git push -u origin bugfix/product/TASK-9999-short-descr
+```
+
 ## Полезные команды
 
 ### Общие
@@ -109,6 +123,15 @@ git reset HEAD
 ```shell
 git diff --name-only --cached
 ```
+
+#### Отменить изменения файла в рабочей директории
+```shell
+git checkout -- test.txt
+```
+
+Двойной дефис (double dashes) "--" здесь нужен, чтобы сказать команде,
+что опций нет. Иначе в команде *git checkout test.txt* название файла
+test.txt можно было бы интерпретировать как название ветки.
 
 #### Отменить все изменения в рабочей директории
 ```shell

@@ -127,6 +127,17 @@ e41acbad0530   php:8.2-cli   "docker-php-entrypoi…"   4 weeks ago   Exited (1)
 
 #### docker logs получает логи из контейнера.
 #### docker inspect  показывает всю информацию о контейнере.
+
+##### Переменные окружения
+
+```
+docker inspect --format '{{range .Config.Env}}{{println .}}{{end}}' my-app
+TZ=Europe/Moscow
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+...
+PHP_INI_DIR=/usr/local/etc/php
+```
+
 #### docker port показывает открытый порт контейнера.
 #### docker stats показывает статистику использования ресурсов контейнеров.
 #### docker diff показывает измененные файлы в файловой системе контейнера.
@@ -180,6 +191,28 @@ ENV LANGUAGE ru_RU:ru
 ENV LC_LANG ru_RU.UTF-8
 ENV LC_ALL ru_RU.UTF-8
 ```
+
+## Межконтейнерное взаимодействие
+
+### Подключение к хостовой сети
+docker run -it --net=host alpine ip addr show
+
+### Подключение к хостовому пространству процессов
+docker run -it --pid=host alpine ps aux
+
+### Запуск другого контейнера в сети другого
+
+```shell
+docker run --net=container:http benhall/curl curl -s localhost
+```
+
+### Запуск процесса одного контейнера в пространстве процессов другого.
+
+```shell
+docker run --pid=container:http alpine ps aux
+```
+
+Так можно подключить strace к процессу внутри контейнера
 
 ## Ресурсы
 

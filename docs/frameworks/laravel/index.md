@@ -21,6 +21,7 @@
 * [Laravel Scheduler task in the docker container](https://medium.com/@fazlulkabir94/everyday-we-need-to-run-some-task-automatic-in-the-web-server-for-various-purpose-suppose-we-have-f1d6192e63ec)
 * [Docker + Laravel + RoadRunner](https://habr.com/ru/post/461687/)
 * [Crafting a better local Laravel dev environment with Docker](https://dev.to/aschmelyun/crafting-a-better-local-laravel-dev-environment-with-docker-45cj)
+* [Полная история версий Laravel](https://benjamincrozat.com/laravel-versions)
 
 ### Почта
 

@@ -11,3 +11,5 @@ $rootActivity->setVariable('bizprocCreator', 'user_' . $USER->GetID());
 ```php
     $this->GetRootActivity()->WriteToTrackingService('Тест');
 ```
+
+[Пример разработки активити](https://web4.kz/upload/files/7e961031718e49aa235532ab8fe3295f.pdf)
