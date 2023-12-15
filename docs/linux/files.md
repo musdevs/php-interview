@@ -21,7 +21,7 @@ find . -type f -mtime +30 -ls
 По убыванию размера (-S)
 
 ```
-ls -Slh .
+ls -Slh .y
 total 18G
 -rw-r-----. 1 100998 100998  4,1G сен 23  2021 b_counter_data.ibd
 -rw-r-----. 1 100998 100998  3,3G апр 27 15:31 b_user_access.ibd
@@ -84,4 +84,13 @@ dd if=/dev/urandom of=/dev/sda1
 
 ```
 sudo find . -type d ! -path "./vendor/*" | xargs ls -ldn | awk '{ print $3 " " $4 }' | uniq
+```
+
+## Архивы
+
+### Распаковка многотомных zip
+
+```shell
+$ zip -s- zip_file.zip -O zip_file_full.zip
+$ unzip zip_file_full.zip
 ```

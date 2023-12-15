@@ -56,6 +56,22 @@ new Vue({
 }).$mount('#app');
 ```
 
+## Экосистема Vue.js
+
+Хорошо описана в [комментарии](https://habr.com/ru/articles/776480/comments/#comment_26211824):
+
+1. Frontend Framework - Vue
+2. SSR Framework - Nuxt
+3. SSG / Static Sites - Vitepress
+4. STM - Pinia / @vue/reactivity
+5. Builder - Vite
+6. Test - Vitest
+7. CSS framework - UnoCSS (убийца тейлвинда)
+8. Linting / Formating - Stylistic / antfu-eslint-config
+9. Language Tools - Volar
+10. Презентации - Slidev
+11. common web tasks - unjs
+
 ## Ресурсы
 
 [Бесплатный курс по Vue.js](https://www.youtube.com/playlist?list=PLvTBThJr861yMBhpKafII3HZLAYujuNWw)

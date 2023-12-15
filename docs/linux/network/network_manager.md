@@ -1,6 +1,6 @@
 Список соединений
 ```bash
-nmcli con 
+nmcli con
 ```
 
 Изменить название сооединения
@@ -27,3 +27,10 @@ nmcli con mod eno1 ipv4.route-metric 100
 ```bash
 nmcli con show eno1 | grep ipv4.route-metric
 ```
+
+Сетевые карты:
+<pre><code>nmcli d</code></pre>
+или
+<pre><code>ifconfig -a</code></pre>
+или если карт нет посмотреть устройства
+<pre><code>lspci</code></pre>

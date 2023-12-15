@@ -26,7 +26,15 @@
    - [Администратор сервиса Битрикс24](http://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=48).
  3. Разместить информацию о Б24
 
-###Компетенции БУС
+#### Условия сдачи проектов
+
+Условия сдачи приведены [тут](https://partners24.1c-bitrix.ru/personal/projects/agreement.php)
+
+[Условия размещения](https://partners24.1c-bitrix.ru/support/faq/122015/1729621/)
+[Кейсы партнеров](https://www.bitrix24.ru/partners/cases/theme__3385/)
+
+
+### Компетенции БУС
 
 [Компетенции партнеров](https://partners.1c-bitrix.ru/sales/competence/)
 

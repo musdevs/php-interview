@@ -230,3 +230,20 @@ Pass 5: Checking group summary information
 b24disk: 11/131072000 files (0.0% non-contiguous), 8282274/524287744 blocks
 ```
 
+<pre><code>lshw -short -C disk</code></pre>
+<pre><code>fdisk -l</code></pre>
+<a href="http://blog.korphome.ru/2012/09/10/%D1%83%D1%87%D0%B8%D0%BC%D1%81%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%82%D1%8C-%D1%81%D0%BE-smart-%D0%B8%D0%BB%D0%B8-%D0%B3%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0-%D0%B1%D0%BB%D0%B8/">Ошибки</a> диска:
+<pre><code>smartctl -l error /dev/sda</code></pre>
+Когда нужно узнать на каком физическом диске находится каталог
+<pre><code>[root@server ~]# df /home
+Filesystem                1K-blocks      Used Available Use% Mounted on
+/dev/mapper/fedora00-home 179851664 151229640  19462960  89% /home
+</code></pre>
+Но если это логический раздел LVM, как показано выше /dev/mapper/fedora00-home, то pvscan покажет расположение группы томов на физических разделах. Группа fedora00 расположена на разделе /dev/sda3:
+<pre><code>[root@server ~]# pvscan
+  PV /dev/sdc3   VG fedora          lvm2 [232.20 GiB / 64.00 MiB free]
+  PV /dev/sda3   VG fedora00        lvm2 [232.20 GiB / 4.00 MiB free]
+  Total: 2 [464.40 GiB] / in use: 2 [464.40 GiB] / in no VG: 0 [0   ]
+</code></pre>
+Все сразу:
+<pre><code>lshw -short -C processor -C memory -C disk</code></pre>
