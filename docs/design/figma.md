@@ -98,3 +98,7 @@ Ctrl+/ - Поиск плагина
 [Text Prettier](https://www.figma.com/community/plugin/783077214649465682)
 [Clean Document](https://www.figma.com/community/plugin/767379019764649932)
 [Font Fascia](https://www.figma.com/community/plugin/746097413727734148)
+
+## Курсы
+
+[Бесплатный подробный курс по Фигме](https://www.youtube.com/playlist?list=PLM2Q6lcZo4MexclJrYxA0Is42qWBBuHpB)

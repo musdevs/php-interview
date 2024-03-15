@@ -67,3 +67,4 @@ list
 
 * [phpRedisAdmin](https://github.com/erikdubbelboer/phpRedisAdmin)
 * [Redis-cli commands](https://redis.io/commands)
+* [Плагин Redis для PhpStorm](https://plugins.jetbrains.com/plugin/17595-redis-helper)

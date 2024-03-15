@@ -30,3 +30,22 @@ openssl pkcs12 -in aaaristarkhov@sber.ru.p12 -out sberid_all_test.pem -clcerts -
 openssl pkcs12 -in aaaristarkhov@sber.ru.p12 -out sberid_crt_test.pem -clcerts -nokeys
 
 openssl pkcs12 -in aaaristarkhov@sber.ru.p12 -out sberid_key_test.pem -nocerts -nodes
+
+### Извлечь из PEM-файла
+
+#### Инофрмация о PEM-файле
+
+```
+openssl x509 -text -noout -in cert.pem
+```
+
+#### Извлечь ключ
+```
+openssl rsa -in cert.pem -out cert.key
+```
+
+#### Извлечь сертификат
+
+```
+openssl x509 -in cert.pem -out cert.key -clcerts -nokeys
+```

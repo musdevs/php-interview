@@ -79,11 +79,34 @@ dd if=/dev/zero of=/dev/sda1
 dd if=/dev/urandom of=/dev/sda1
 ```
 
+## Информация
 
-Список владельцев директорий
+### Список владельцев директорий
 
 ```
 sudo find . -type d ! -path "./vendor/*" | xargs ls -ldn | awk '{ print $3 " " $4 }' | uniq
+```
+
+### Даты создания, изменения
+
+```
+$ stat jmeter.log
+File: jmeter.log
+Size: 1761      	Blocks: 8          IO Block: 4096   regular file
+Device: 1030ah/66314d	Inode: 26550214    Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/    user)   Gid: ( 1000/    user)
+Access: 2023-11-14 09:38:38.651822709 +0300
+Modify: 2023-11-14 09:38:39.239830354 +0300
+Change: 2023-11-14 09:38:39.239830354 +0300
+Birth: 2023-11-14 09:38:38.651822709 +0300
+```
+
+### Файловая система для файла
+
+```
+$ df jmeter.log
+Filesystem      1K-blocks      Used Available Use% Mounted on
+/dev/nvme0n1p10 547402752 419935600  99587168  81% /home
 ```
 
 ## Архивы

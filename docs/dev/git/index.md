@@ -97,17 +97,36 @@ git config --global alias.change-commits '!'"f() { VAR=\$1; OLD=\$2; NEW=\$3; sh
 git change-commits GIT_AUTHOR_EMAIL new@example.com old@example.com
 ```
 
-### Перестать отслеживать файл
+### Отслеживание файлов
+
+#### Перестать отслеживать файл
 
 ```shell
-git update-index --assume-unchanged .env
+git update-index --skip-worktree .env
 ```
 
-### Перестать отслеживать измененные файлы
+#### Перестать отслеживать измененные файлы
 
 ```shell
 git ls-files -m ./test | xargs git update-index --skip-worktree
 ```
+
+#### Продолжить отслеживать файл
+
+```shell
+git update-index --no-skip-worktree .env
+```
+
+git update-index --assume-unchanged .env
+
+#### Список неотслеживаемых файлов
+
+```shell
+git ls-files -v | grep "^S"
+S app/Http/Controllers/MyController.php
+```
+
+### Разное
 
 Отменить последний коммит. Закомиченные изменения попадут в индекс, а рабочий каталог останется нетронутым
 ```shell
