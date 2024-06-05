@@ -8,9 +8,9 @@
 $arFilter = array(
     'IBLOCK_ID' => 3, // выборка элементов из инфоблока с ИД равным «3»
     'ACTIVE' => 'Y',  // выборка только активных элементов
-    '>=DATE_ACTIVE_FROM' => '11.11.2021',  
+    '>=DATE_ACTIVE_FROM' => '11.11.2021',
     '<=DATE_ACTIVE_TO' => '13.11.2021',
-    'PROPERTY_USER' => 5,  
+    'PROPERTY_USER' => 5,
 );
 
 $res = CIBlockElement::GetList(array(), $arFilter, false, false, array('ID','NAME','ACTIVE', 'DATE_ACTIVE_FROM'));
@@ -21,4 +21,13 @@ if ($element = $res->GetNext()) {
 } else {
     echo 'Такое отсутствие не найдено';
 }
+```
+
+## Дата и время
+
+###
+
+```php
+echo \ConvertTimeStamp(false, "FULL");
+28.03.2024 14:48:28
 ```

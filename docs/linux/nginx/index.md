@@ -43,3 +43,7 @@ ML, like Gecko) Chrome/104.0.0.0 Safari/537.36" "-" "{\x22phone\x22:\x2271234567
     "code": "12345"
 }
 ```
+
+## Ресурсы
+
+- [Сервис по генерации конфигов для Nginx](https://www.digitalocean.com/community/tools/nginx) взято [отсюда](https://t.me/srv_admin/3506)

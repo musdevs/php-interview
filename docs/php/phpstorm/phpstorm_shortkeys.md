@@ -2,6 +2,7 @@
 
 Ctrl+Shift+M - "Move Caret To Matching Brace" - перейти к парной скобке или тегу
 Ctrl+Shift+O - "optimize imports" - удаляет
+Ctrl+E - Открыть список недавно открытых файлов
 
 ## Сортировка строк (массива)
 

@@ -1,5 +1,13 @@
 # Git
 
+## Инициализация
+
+```
+git init
+git config user.name "Vladimir"
+git config user.email "info@example.com"
+```
+
 ## Процесс разработки
 
 ### Создание локальной ветки для разработки
@@ -43,6 +51,29 @@ git remote -v
 
 ```
 git branch -r
+```
+
+### Переименование ветки удалённого репозитория
+
+Просто переименовать [не получится](https://stackoverflow.com/questions/30590083/git-how-to-rename-a-branch-both-local-and-remote).
+Можно только через удаление удаленную ветку
+
+```shell
+# Rename the local branch to the new name
+git branch -m <old_name> <new_name>
+
+# Delete the old branch on remote - where <remote> is, for example, origin
+git push <remote> --delete <old_name>
+
+# Prevent git from using the old name when pushing in the next step.
+# Otherwise, git will use the old upstream name instead of <new_name>.
+git branch --unset-upstream <new_name>
+
+# Push the new branch to remote
+git push --set-upstream <remote> <new_name>
+
+# Reset the upstream branch for the new_name local branch
+git push <remote> -u <new_name>
 ```
 
 ### Получение изменений из удалённого репозитория
@@ -282,6 +313,79 @@ git push --force
 ```
 
 Подробнее [тут](https://htmlacademy.ru/blog/git/how-to-squash-commits-and-why-it-is-needed)
+
+
+### Удаленные репозитории
+
+#### Подключение с помощью ssh
+
+Есть внутренний проект - библиотека. В его composer.json задано имя "somedeveloper/mylib"
+```
+{
+    "name": "somedeveloper/mylib",
+```
+
+Подключаем библиотеку к проекту-потребителю
+
+```
+composer config repositories.sdk-logging vcs ssh://git@example.com:8888/some/myproject.git
+```
+
+В composer.json зависимость будет описана так:
+
+```
+    "require": {
+
+       ...
+
+        "somedeveloper/mylib": "*",
+
+        ...
+
+    },
+
+    ...
+
+    "repositories": {
+        "myproject": {
+            "type": "vcs",
+            "url": "ssh://git@example.com:8888/some/myproject.git"
+        }
+    }
+```
+
+При установке зависимости можем получить ошибку недоступности репозитория.
+Особенно, если подключение идет по публичному SSH-ключу
+
+```
+composer require somedeveloper/mylib
+```
+
+Проверить доступность репозитория можно так:
+
+```
+ssh -t -v -p 8888 git@git@example.com
+```
+
+Указать конкретный ключ можно в файле ~/.ssh/config
+
+```
+Host example.com
+    Hostname example.com
+    Port 8888
+    IdentityFile ~/.ssh/id_example
+    IdentitiesOnly yes
+```
+
+Если ошибку получаем в докер-контейнере, то подключаем volume с локальными ключами.
+Можем подключиить network_mode: "host", если хост недоступен из-за сетевых проблем внутри контейнера.
+
+```
+  app:
+    volumes:
+      - ~/.ssh:/home/appuser/.ssh:ro
+    network_mode: "host"
+```
 
 ## Ресурсы
 1. [Pro Git book (ru)](https://git-scm.com/book/ru/v2)

@@ -117,3 +117,11 @@ Filesystem      1K-blocks      Used Available Use% Mounted on
 $ zip -s- zip_file.zip -O zip_file_full.zip
 $ unzip zip_file_full.zip
 ```
+
+## Открытые файлы
+
+Файлы открытые процессом:
+
+```shell
+lsof -p PID
+```

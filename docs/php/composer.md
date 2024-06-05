@@ -1,5 +1,15 @@
 # Composer
 
+## Установка зависимостей на продакшене
+
+```
+composer install --no-dev
+```
+
+**require-dev** - зависимости, которые не устанавливаются на продакшене при указании ключа --no-dev
+
+## Исправление ошибки Allowed memory bytes exhausted
+
 Fixing the error *"Fatal error: Allowed memory size of 1610612736 bytes exhausted"*
 ```
 COMPOSER_MEMORY_LIMIT=-1 composer require vendor/package

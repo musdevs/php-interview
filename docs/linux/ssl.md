@@ -49,3 +49,11 @@ openssl rsa -in cert.pem -out cert.key
 ```
 openssl x509 -in cert.pem -out cert.key -clcerts -nokeys
 ```
+
+### Конвертировать PFX в PEM
+
+Конвертировать PFX в PEM без сохранения пароля:
+
+```
+openssl pkcs12 -in 'cert.pfx' -out cert.pem -legacy -noenc
+```

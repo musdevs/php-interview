@@ -33,3 +33,7 @@ nmcli con down "OnePlus 6"
 sudo sysctl net.ipv4.ip_default_ttl=64
 nmcli con up "OnePlus 6"
 sudo sysctl net.ipv4.ip_default_ttl=65
+
+## Ресурсы
+
+- [Полезный список ресурсов для изучения компьютерных сетей](https://github.com/SE-adm/Awesome-network/tree/main#%D0%9A%D1%83%D1%80%D1%81%D1%8B)

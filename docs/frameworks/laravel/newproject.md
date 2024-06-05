@@ -88,5 +88,5 @@ curl -sS --output composer.phar https://getcomposer.org/download/2.2.6/composer.
 Установка Laravel 8.6.11, выпущенного до 24.02.2022, без установки vendor и выполнения composer-скриптов:
 
 ```
-composer create-project --prefer-dist --no-install --no-scripts laravel/laravel omni-back-notifications 8.6.11
+composer create-project --prefer-dist --no-install --no-scripts laravel/laravel myproject 8.6.11
 ```
