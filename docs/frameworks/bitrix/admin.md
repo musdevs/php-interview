@@ -18,3 +18,7 @@ site.ru_20170905_083901_full_991920ba.tar.gz.1 в site.ru_20170905_083901_full_9
 ```shell
 ls -v ./backup | xargs -L1 -d '\n' readlink -f | cat | tar -xzvf - -i
 ```
+
+##
+
+### [Настройка работы с просмотром и редактирования документов](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=48&LESSON_ID=13066

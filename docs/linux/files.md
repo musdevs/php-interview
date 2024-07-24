@@ -8,6 +8,12 @@ find . -type f -mtime -10 -ls
 2628204   48 -rw-rw-r--   1 user   user      46922 Jul  2 14:30 ./template.php
 ```
 
+Список файлов, измененных в течение последних 5 минут
+```shell
+find . -type f -mmin -5 -ls
+27263205    892 -rw-r--rw-   1 vvs      vvs        907088 июл 23 08:54 ./bitrix/modules/updater.log
+```
+
 Список файлов, измененных раньше, чем 30 дней назад
 ```shell
 find . -type f -mtime +30 -ls
