@@ -136,6 +136,13 @@ git change-commits GIT_AUTHOR_EMAIL new@example.com old@example.com
 
 ### Отслеживание файлов
 
+### Исключить отслеживание файлов в локальном репозитории
+
+```
+vi .git/info/exclude
+some/dir/info.txt
+ ```
+
 #### Перестать отслеживать файл
 
 ```shell

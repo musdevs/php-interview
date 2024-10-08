@@ -1,8 +1,64 @@
+
+## Информация о дисках
+
+### hwinfo
+
+```
+hwinfo --disk
+35: PCI 00.0: 10600 Disk
+  [Created at block.245]
+  Unique ID: wLCS.rgUczaerBoD
+  Parent ID: B35A.nIUKU6+pYDD
+  SysFS ID: /class/block/nvme0n1
+  SysFS BusID: nvme0
+  SysFS Device Link: /devices/pci0000:00/0000:00:01.2/0000:02:00.0/nvme/nvme0
+  Hardware Class: disk
+  Model: "SK hynix Disk"
+  Vendor: pci 0x1c5c "SK hynix"
+  Device: pci 0x174a
+  SubVendor: pci 0x1c5c "SK hynix"
+  SubDevice: pci 0x174a
+  Driver: "nvme"
+  Driver Modules: "nvme"
+  Device File: /dev/nvme0n1
+  Device Files: /dev/nvme0n1, /dev/disk/by-id/nvme-SKHynix_HFS001TDE9X084N_ANABN85931160C254, /dev/disk/by-id/nvme-nvme.1c5c-414e41424e383539333131363043323534-534b48796e69785f48465330303154444539583038344e-00000001, /dev/disk/by-path/pci-0000:02:00.0-nvme-1, /dev/disk/by-id/nvme-SKHynix_HFS001TDE9X084N_ANABN85931160C254_1
+  Device Number: block 259:0
+  Drive status: no medium
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #8 (Non-Volatile memory controller)
+```
+
+### smartmontools
+
+```shell
+sudo apt install smartmontools
+sudo smartctl -i /dev/nvme0n1я о диске -
+smartctl 7.2 2020-12-30 r5155 [x86_64-linux-6.8.0-40-generic] (local build)
+Copyright (C) 2002-20, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Model Number:                       SKHynix_HFS001TDE9X084N
+Serial Number:                      ANABN85931160C254
+Firmware Version:                   41010C22
+PCI Vendor/Subsystem ID:            0x1c5c
+IEEE OUI Identifier:                0xace42e
+Controller ID:                      1
+NVMe Version:                       1.3
+Number of Namespaces:               1
+Namespace 1 Size/Capacity:          1 024 209 543 168 [1,02 TB]
+Namespace 1 Formatted LBA Size:     512
+Namespace 1 IEEE EUI-64:            ace42e 001681a049
+Local Time is:                      Thu Sep 26 09:58:02 2024 MSK
+
+```
+
+
+
 https://www.8host.com/blog/razdelenie-i-formatirovanie-diskov-v-linux/
 
 https://losst.ru/rsync-primery-sinhronizatsii
 
-Список подключенных дисков
+## Список подключенных дисков
 
 ```
 ls -l /dev/

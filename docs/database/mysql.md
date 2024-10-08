@@ -2,25 +2,19 @@
 
 ## Таблицы
 
-Структура таблицы
+### Структура таблицы
 
 ```mysql
 SHOW TABLE STATUS where name like 'my_table';
 ```
 
-Индексы
+### Индексы
 
 ```mysql
 SHOW INDEX IN my_table;
 ```
 
-Информация о таблице
-
-```mysql
-SHOW TABLE STATUS where name like 'my_table';
-```
-
-Удалить все таблицы в БД:
+### Удалить все таблицы в БД:
 
 ```shell
 mysql -N -e "\
@@ -31,14 +25,22 @@ SELECT concat('DROP TABLE IF EXISTS ', table_schema, '.', table_name, ';') \
 mysql sitemanager < /tmp/drop_all_tables.sql
 ```
 
+### Изменить кодировку таблицы
+
+```mysql
+ALTER TABLE my_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+```
+
 ## Пользователи
 
-Запустить клиента mysql, чтобы он не запоминал в истории команды содержащие IDENTIFIED и PASSWORD
+### Запустить клиента mysql, чтобы он не запоминал в истории команды содержащие IDENTIFIED и PASSWORD
+
 ```shell script
 mysql --histignore="*IDENTIFIED*:*PASSWORD*"
 ```
 
-Создать и выделить права
+### Создать и выделить права
+
 ```mysql
 CREATE USER 'test'@'127.0.0.1' IDENTIFIED BY '123';
 GRANT ALL PRIVILEGES ON `db`.* TO 'test'@'127.0.0.1';
@@ -46,12 +48,41 @@ GRANT ALL PRIVILEGES ON `db`.* TO 'test'@'127.0.0.1';
 
 ## Разное
 
-Посмотреть переменные MySQL
+### Посмотреть переменные MySQL
+
 ```mysql
 SHOW VARIABLES LIKE '%sock%';
 ```
+```
++-----------------------------------------+-----------------------------+
+| Variable_name                           | Value                       |
++-----------------------------------------+-----------------------------+
+| performance_schema_max_socket_classes   | 10                          |
+| performance_schema_max_socket_instances | -1                          |
+| socket                                  | /var/run/mysqld/mysqld.sock |
++-----------------------------------------+-----------------------------+
+3 rows in set (0.01 sec)
+```
 
-Узнать на каком порту работает MySQL
+### Вертикальный формат вывода в шелле MySQL (\G)
+
+```mysql
+show variables like '%sock%'\G;
+```
+```
+*************************** 1. row ***************************
+Variable_name: performance_schema_max_socket_classes
+        Value: 10
+*************************** 2. row ***************************
+Variable_name: performance_schema_max_socket_instances
+        Value: -1
+*************************** 3. row ***************************
+Variable_name: socket
+        Value: /var/run/mysqld/mysqld.sock
+3 rows in set (0.01 sec)
+```
+
+### Узнать на каком порту работает MySQL
 
 ```shell script
 mysql -e 'show variables like "port"';
@@ -69,7 +100,7 @@ netstat -tlnp | grep mysql
 tcp6       0      0 :::3306                 :::*                    LISTEN      11836/mysqld
 ```
 
-Проверить открыт ли порт 3306
+### Проверить открыт ли порт 3306
 
 ```shell script
 nmap -p 3306 10.10.10.100
@@ -81,7 +112,7 @@ PORT     STATE    SERVICE
 3306/tcp filtered mysql
 ```
 
-STATE=filtered - закрыт фаерволом 
+STATE=filtered - закрыт фаерволом
 
 ## Ссылки
 
