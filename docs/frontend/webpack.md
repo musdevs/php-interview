@@ -1,5 +1,21 @@
 # Webpack
 
+## Узнать версии Webpack
+
+### Локальная
+
+```shell
+npx webpack --version
+4.44.2
+```
+
+### Актуальная
+
+```shell
+npm view webpack version
+5.95.0
+```
+
 ## Интеграция с PHP
 
 [Using a webpack plugin with Vue Client 3](https://stackoverflow.com/questions/53630205/using-a-webpack-plugin-with-vue-client-3)

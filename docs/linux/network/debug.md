@@ -15,6 +15,43 @@ hostname --all-ip-addresses
 curl ifconfig.co
 ```
 
+Вывести подробную информацию об IP-адресе
+```bash
+function ipa {
+  curl -s https://ifconfig.co/json?ip=$1 | jq 'del(.user_agent)'
+}
+
+ipa 92.53.96.105
+{
+  "ip": "92.53.96.105",
+  "ip_decimal": 1547001961,
+  "country": "Russia",
+  "country_iso": "RU",
+  "country_eu": false,
+  "region_name": "St.-Petersburg",
+  "region_code": "SPE",
+  "zip_code": "195213",
+  "city": "St Petersburg",
+  "latitude": 59.9417,
+  "longitude": 30.3096,
+  "time_zone": "Europe/Moscow",
+  "asn": "AS9123",
+  "asn_org": "TimeWeb Ltd.",
+  "hostname": "vh434.timeweb.ru"
+}
+```
+
+Вывести страну IP-адреса
+
+```shell
+function ipc {
+  curl -s https://ifconfig.co/json?ip=$1 | jq '.country'
+}
+
+ipc 92.53.96.105
+"Russia"
+```
+
 Проверить маршрут до хоста
 ```bash
 ip route get 192.168.1.1

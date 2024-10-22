@@ -98,6 +98,7 @@ docker ps -aq -f ancestor=php:8.2-cli | xargs docker rm
 * docker unpause возобновляет работу запущенного контейнера.
 * docker exec выполняет команду в контейнере.
 * docker attach подключается к запущенному контейнеру.
+* docker compose - замена устаревшему docker-compose (его новая версия)
 
 ### Информация о контейнере
 
