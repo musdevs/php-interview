@@ -105,6 +105,12 @@ git --no-pager branch -r
 git clone --single-branch --branch <branch-name> <url>
 ```
 
+### Забрать только до определенного коммита, помеченного тегом vN.N.N
+
+```
+git clone --branch vN.N.N --single-branch <url>
+```
+
 ### Переключиться на удаленную ветку
 
 Сначала нужно получить ветку из удаленного репозитория, а потом создать локальную ветку,
@@ -130,8 +136,21 @@ git reset --hard HEAD^
 ### Изменить email в истории коммитов
 
 ```
-git config --global alias.change-commits '!'"f() { VAR=\$1; OLD=\$2; NEW=\$3; shift 3; git filter-branch --env-filter \"if [[ \\\"\$\`echo \$VAR\`\\\" = '\$OLD' ]]; then export \$VAR='\$NEW'; fi\" \$@; }; f"
-git change-commits GIT_AUTHOR_EMAIL new@example.com old@example.com
+git filter-branch --env-filter '
+OLD_EMAIL="myoldname@example.com"
+CORRECT_NAME="mynewname"
+CORRECT_EMAIL="mynewname@example.com"
+if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+fi
+if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_AUTHOR_NAME="$CORRECT_NAME"
+    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+fi
+' --tag-name-filter cat -- --branches --tags
 ```
 
 ### Отслеживание файлов

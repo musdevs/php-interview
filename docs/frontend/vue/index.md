@@ -74,4 +74,11 @@ new Vue({
 
 ## Ресурсы
 
-[Бесплатный курс по Vue.js](https://www.youtube.com/playlist?list=PLvTBThJr861yMBhpKafII3HZLAYujuNWw)
+- [Репозиторий руководство версии 2 (на русском)](https://github.com/musdevs/ru.vuejs.org)
+
+```
+cd ~/my/projects/musdevs/public/vue/ru.vuejs.org
+npm run dev
+```
+
+- [Бесплатный курс по Vue.js](https://www.youtube.com/playlist?list=PLvTBThJr861yMBhpKafII3HZLAYujuNWw)

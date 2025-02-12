@@ -213,7 +213,22 @@ docker run --net=container:http benhall/curl curl -s localhost
 docker run --pid=container:http alpine ps aux
 ```
 
+```
+sudo systemctl restart docker
+```
+
 Так можно подключить strace к процессу внутри контейнера
+
+## Добавление зеркал реестров
+
+Рецепт [отсюда](https://artydev.ru/posts/docker/)
+
+```shell
+cat << EOF | sudo tee -a /etc/docker/daemon.json
+{ "registry-mirrors" : [ "https://dockerhub.timeweb.cloud", "https://huecker.io", "https://mirror.gcr.io", "https://c.163.com", "https://registry.docker-cn.com", "https://daocloud.io" ] }
+EOF
+```
+
 
 ## Ресурсы
 

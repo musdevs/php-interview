@@ -29,3 +29,4 @@
 2. [Как подружить PHPstorm, xDebug и удаленные ветки, собранные через Docker](https://habr.com/ru/post/423337/)
 3. [Отладка удаленного xdebug за NAT](http://tokarchuk.ru/2017/07/remote-xdebug-behind-nat/)
 4. [Xdebug - Supported Versions and Compatibility](https://xdebug.org/docs/compat#versions)
+5. [Список версий Xdebug на PECL](https://pecl.php.net/package/xdebug)

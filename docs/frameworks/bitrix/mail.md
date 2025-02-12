@@ -22,6 +22,23 @@ tls_starttls on
 tls_certcheck off
 ```
 
+### Удачный конфиг для Таймвеб
+
+```
+account default
+logfile /home/bitrix/msmtp_default.log
+host smtp.timeweb.ru
+port 25
+from bitrix@domain
+aliases /etc/aliases
+keepbcc on
+auth on
+user bitrix@domain
+password *
+
+tls on
+```
+
 ### Отправка тестового письма из консоли
 
 ```
