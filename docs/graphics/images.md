@@ -38,4 +38,4 @@ convert file.jpg -rotate 270 -resize 30% newfile.jpg
 pdfimages -f 1 -l 1 -all file.pdf image
 ```
 
-Еще полезные команды <a href="https://www.howtogeek.com/109369/how-to-quickly-resize-convert-modify-images-from-the-linux-terminal/">тут</a>.
+Еще [полезные команды](https://www.howtogeek.com/109369/how-to-quickly-resize-convert-modify-images-from-the-linux-terminal/).

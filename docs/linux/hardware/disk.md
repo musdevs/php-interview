@@ -111,7 +111,20 @@ vdc
 vdd
 ```
 
-
+```
+# lsblk -o name,fstype,size,uuid,type,label,mountpoint
+NAME   FSTYPE   SIZE UUID                                 TYPE LABEL   MOUNTPOINT
+fd0               4K                                      disk
+sda             270G                                      disk
+├─sda1 ext4     200M 41db4f2a-a8f1-4b3a-a3ca-3658b870f035 part bxBoot  /boot
+├─sda2 swap     512M 9e2b3316-e5bb-4c8f-898c-536c7ced9623 part bxSwap  [SWAP]
+└─sda3 ext4   269,3G 4aacb6c2-b435-4e63-b652-ad403eac9c6c part bxRoot  /
+sdb             853G                                      disk
+└─sdb1 ext4     853G 067e0ce2-fbcc-4992-adaa-e75e7083a395 part b24disk /home/bitrix/www/upload/disk
+sdc             2,5T                                      disk
+└─sdc1 ext4       2T 58dac841-2a03-414c-bd47-c1db5d33262d part         /mnt/bitrix_upload
+sr0            1024M                                      rom
+```
 
 
 ```
