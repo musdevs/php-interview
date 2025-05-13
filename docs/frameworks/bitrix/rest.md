@@ -38,6 +38,23 @@ refresh_token сохраняет свою актуальность в течен
 ## Обращение через веб-хук
 curl --insecure -d "taskId=1" -X POST https://dwp-test.maytea.com/rest/5555/afjdpasdkfja;sd/tasks.task.get
 
+## Разрешить HTTP в веб-хуках
+
+По умолчанию при HTTP-запросе получаем ошибку:
+
+```json
+{
+"error": "INVALID_REQUEST",
+"error_description": "Https required."
+}
+```
+
+Можно отключить в init.php:
+
+```php
+define("REST_APAUTH_ALLOW_HTTP", true);
+```
+
 ## Ссылки
 - [Документация по REST](https://dev.1c-bitrix.ru/rest_help/index.php)
 - [Приложения Битрикс24](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=99&INDEX=Y)

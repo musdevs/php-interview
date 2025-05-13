@@ -59,6 +59,12 @@ git remote show origin
 git branch -r
 ```
 
+### Установить отслеживание удаленной ветки для локальной
+
+```
+git branch -u origin/main main
+```
+
 ### Переименование ветки удалённого репозитория
 
 Просто переименовать [не получится](https://stackoverflow.com/questions/30590083/git-how-to-rename-a-branch-both-local-and-remote).
@@ -91,6 +97,12 @@ git push <remote> -u <new_name>
 ```
 git checkout master
 git fetch [remote-name]
+```
+
+### Список веток с информацией об отслеживаемых ветках
+
+```shell
+git branch -vv
 ```
 
 ### Список веток из удаленного репозитория
@@ -321,6 +333,13 @@ git branch -vv
 
 
 ### Манипуляции с коммитами
+
+#### Удаление последнего коммита
+
+```shell
+git reset HEAD~ # удаляем только коммит, изменения останутся в рабочей директории
+git reset --hard HEAD~ # удаляем коммит и изменения
+```
 
 #### Перенос коммитов из другой ветки (git cherry-pick)
 

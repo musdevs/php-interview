@@ -114,6 +114,17 @@ PORT     STATE    SERVICE
 
 STATE=filtered - закрыт фаерволом
 
+### Посмотреть ошибки последней транзакции
+
+```sql
+SHOW ENGINE INNODB STATUS
+------------------------
+LATEST FOREIGN KEY ERROR
+------------------------
+2025-04-14 11:55:57 0x7b011dee8640 Error in foreign key constraint of table `sitemanager`.`b_learn_answer`:
+Create  table `sitemanager`.`b_learn_answer` with foreign key `b_learn_answer_ibfk_1` constraint failed. Referenced table `sitemanager`.`b_learn_question` not found in the data dictionary.------------
+```
+
 ## Ссылки
 
 1. [MySQL Tuning and Troubleshooting for System Admins](https://www.youtube.com/watch?v=w-z7QCpnZbM)

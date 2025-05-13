@@ -131,3 +131,11 @@ $ unzip zip_file_full.zip
 ```shell
 lsof -p PID
 ```
+
+## Монтирование
+
+### Монтирование ISO-образа
+
+```shell
+sudo mount /home/user/disk.iso /mnt/iso -t iso9660 -o loop
+```

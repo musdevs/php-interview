@@ -23,3 +23,4 @@ bitrix-env.noarch       7.3-4.el7       @bitrix
  * 5222 / 5223 - http/https xmpp сервер
 
 [Виртуальная машина BitrixVM v7.x](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=37&INDEX=Y)
+

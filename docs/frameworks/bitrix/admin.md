@@ -15,8 +15,14 @@ site.ru_20170905_083901_full_991920ba.tar.gz.1 в site.ru_20170905_083901_full_9
 
 Или автоматически
 
+Это не сработало:
 ```shell
 ls -v ./backup | xargs -L1 -d '\n' readlink -f | cat | tar -xzvf - -i
+```
+
+А так сработало
+```
+ls -v . | xargs -L1 -d '\n' readlink -f | xargs -d $'\n' cat | tar -C ../portal-new-unpack -xzvf - -i
 ```
 
 ##
