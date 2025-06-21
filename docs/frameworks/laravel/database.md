@@ -60,7 +60,18 @@ public function boot()
     ->whereDate('user.updated_at', '=', '2019-08-06')
 ```
 
-приведет к формированию запроса в PostgreSQL:
+приведет к формированию запроса
+
+```mysql
+select
+	users.id
+from
+	users
+where
+	DATE(updated_at) = '2019-08-06'
+```
+
+в PostgreSQL:
 
 ```sql
 select

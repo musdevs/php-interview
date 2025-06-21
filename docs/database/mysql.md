@@ -41,9 +41,22 @@ mysql --histignore="*IDENTIFIED*:*PASSWORD*"
 
 ### Создать и выделить права
 
+#### Подключение только локально, права на все:
+
 ```mysql
 CREATE USER 'test'@'127.0.0.1' IDENTIFIED BY '123';
 GRANT ALL PRIVILEGES ON `db`.* TO 'test'@'127.0.0.1';
+```
+
+#### Подключение со всех адресов, права на заданные таблицы:
+
+```
+CREATE USER 'bi'@'%' IDENTIFIED BY '';
+GRANT SELECT ON `portal`.`b_tasks` TO 'bi'@'%';
+GRANT SELECT ON `portal`.`b_sonet_group` TO 'bi'@'%';
+GRANT SELECT ON `portal`.`b_user` TO 'bi'@'%';
+GRANT SELECT ON `portal`.`b_tasks_member` TO 'bi'@'%';
+GRANT SELECT ON `portal`.`b_tasks_elapsed_time` TO 'bi'@'%';
 ```
 
 ## Разное

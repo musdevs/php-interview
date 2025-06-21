@@ -81,4 +81,3 @@ cd ~/my/projects/musdevs/public/vue/ru.vuejs.org
 npm run dev
 ```
 
-- [Бесплатный курс по Vue.js](https://www.youtube.com/playlist?list=PLvTBThJr861yMBhpKafII3HZLAYujuNWw)

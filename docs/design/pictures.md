@@ -39,3 +39,11 @@ mogrify -type Grayscale image1.jpg image2.png
 ```shell
 mogrify -pointsize 24 -draw "text 100,100 'Hello, World!'" image1.jpg image2.png
 ```
+
+## Утилиты
+
+### [Pic Smaller](https://github.com/joye61/pic-smaller)
+
+Pic Smaller — это простой в использовании онлайн-инструмент для сжатия изображений, который гарантирует безопасность пользователей, так как все операции сжатия выполняются исключительно на устройстве пользователя, без использования серверной обработки.
+
+Инструмент поддерживает различные форматы изображений, такие как JPEG, PNG, WEBP, AVIF, SVG и GIF.

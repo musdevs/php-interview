@@ -52,6 +52,12 @@ ipc 92.53.96.105
 "Russia"
 ```
 
+Запрос без проверки сертификата, но логином и паролем:
+```shell
+wget --user=Bitrix24 --password=MyPassword --no-check-certificate https://example.com
+curl --user Bitrix24:MyPassword --insecure https://example.com
+```
+
 Проверить маршрут до хоста
 ```bash
 ip route get 192.168.1.1

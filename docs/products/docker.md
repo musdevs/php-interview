@@ -229,6 +229,31 @@ cat << EOF | sudo tee -a /etc/docker/daemon.json
 EOF
 ```
 
+## Очистка Docker
+
+### Удаляет все остановленные контейнеры
+
+```shell
+docker container prune -f
+```
+###  Удаляет неиспользуемые образы (даже старые версии)
+
+```shell
+docker image prune -a -f
+```
+
+###  Чистит volume'ы и сети
+
+```shell
+docker volume prune -f
+docker network prune -f
+```
+
+###  Показывает, сколько места освободилось
+
+```shell
+docker system df
+```
 
 ## Ресурсы
 
