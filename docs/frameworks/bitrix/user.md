@@ -26,27 +26,19 @@ require($_SERVER['DOCUMENT_ROOT']."/bitrix/footer.php");
 return;
 ```
 
-## Авторизация под администратором
+## Вход на сайт с закрытым публичным доступом
 
-В начало файла bitrix/.access.php временно добавить
-
-```php
-return;
-```
+https://dev.1c-bitrix.ru/support/forum/forum6/topic94911/
 
 Добавить файл bitrix/admin/aa.php и выполнить его через браузер
 ```php
 <?
 // bitrix/admin/aa.php
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
+define("SM_SAFE_MODE", true);
+define("NOT_CHECK_PERMISSIONS",true);
+include($_SERVER["DOCUMENT_ROOT"].'/bitrix/modules/main/include/prolog_before.php');
 global $USER;
 $USER->Authorize(1);
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");
+LocalRedirect('/bitrix/admin/');
 ?>
-```
-
-Удалить из файла bitrix/.access.php ранее добавленную строку:
-
-```php
-return;
 ```

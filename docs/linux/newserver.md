@@ -5,7 +5,15 @@
 dnf update
 ```
 
-useradd vvs -G wheel
+Список групп
+```
+getent group
+```
+
+```
+adduser vvs
+usermod -aG wheel vvs
+```
 
 Изменить SSH-порт
 ```
