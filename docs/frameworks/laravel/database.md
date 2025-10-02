@@ -22,6 +22,12 @@ $result = \DB::connection('my')
 print_r(\DB::connection('my')->getQueryLog());
 ```
 
+### Получить текст SQL-запроса из объекта Builder
+
+```php
+echo vsprintf(str_replace(['?'], ['\'%s\''], $query->toSql()), $query->getBindings());
+```
+
 ### Вывести запрос в [Tinker](http://laragems.com/post/a-quick-way-to-display-a-sql-query-in-tinker)
 
 ```php

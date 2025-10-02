@@ -7,6 +7,7 @@
 
 ```php
 <?php
+// ntlm_off.php
 $_SERVER["DOCUMENT_ROOT"] = '/var/www/html';
 $DOCUMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
 define("NO_KEEP_STATISTIC", true);

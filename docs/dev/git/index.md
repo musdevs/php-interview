@@ -302,6 +302,12 @@ e55c67fb1 Thu Feb 10 20:38:41 2022 +0300 comment1
 | %cr      |   Дата коммитера, относительная|
 | %s       |   Комментарий|
 
+#### История удаленной ветки origin/master
+
+```shell
+git --no-pager log -10 --pretty=format:"%h %cd %s" origin/master
+```
+
 #### Список авторов коммитов
 
 ```shell

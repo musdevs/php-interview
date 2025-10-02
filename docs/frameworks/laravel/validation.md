@@ -47,6 +47,17 @@ $request->validate([
 ]);
 ```
 
+## Отладка
+
+Если требуется посмотреть какие валидаторы отрабатывают, то точку отладки ставим
+в методе vendor/laravel/framework/src/Illuminate/Validation/Validator.php:685:
+
+```php
+if ($validatable && ! $this->$method($attribute, $value, $parameters, $this)) { // в этой строке
+      $this->addFailure($attribute, $rule, $parameters);
+}
+```
+
 ## Ссылки
 
 - [The Art of Validation in Laravel: A Comprehensive Guide](https://dev.to/mktheitguy/the-art-of-validation-in-laravel-a-comprehensive-guide-4cjo)

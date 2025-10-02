@@ -34,17 +34,17 @@ function onCustomEvent(eventObject, eventName, eventParams, secureParams) {
 
 	if ($page === 'user_task_list' || $page === 'group_task_list') {
 		$assetManager = \Bitrix\Main\Page\Asset::getInstance();
-		$assetManager->addJs('/bitrix/js/dexika.corr/tasks.list.js');
+		$assetManager->addJs('/bitrix/js/my.module/tasks.list.js');
 	}
 });
 ```
 
 ```javascript
-// /bitrix/js/dexika.corr/tasks.list.js
+// /bitrix/js/my.module/tasks.list.js
 
 BX.ready(function () {
-	// Найти в таблице задач колонку пользовательского свойства UF_DEXIKA_CORR_DOC
-	let th = document.querySelector('th.main-grid-cell-head[data-name=UF_DEXIKA_CORR_DOC]');
+	// Найти в таблице задач колонку пользовательского свойства UF_MY_MODULE_DOC
+	let th = document.querySelector('th.main-grid-cell-head[data-name=UF_MY_MODULE_DOC]');
 
 	if (!th) {
 		return

@@ -66,18 +66,8 @@ grant_type=refresh_token
 ## Выполнение запросов
 
 ```shell
-curl --location 'http://b24-dev-80.local/rest/crm.company.list.json?access_token=61aa196500674ca800674ca400000001000007407371b032e57f428c16d47dda1cf595' \
---header 'Content-Type: application/json' \
---header 'Cookie: PHPSESSID=kdJIZ0FFocGSdybpisLOtJFvTsAP51cQ' \
---data '{
-    "filter": {
-        "IS_MY_COMPANY": "Y"
-    },
-    "select": [
-        "ID",
-        "TITLE"
-    ]
-}'
+
+
 ```
 
 ```json

@@ -20,6 +20,11 @@ find . -type f -mtime +30 -ls
 2234183    4 -rw-rw-r--   1 user   user          7 Jun 16 22:19 ./service.php
 ```
 
+Копирование файлов, измененных за последние 2 часа с полными путями
+```shell
+find ./local -type f -mmin -120 -exec cp --parents {} ~/tmp/local \;
+```
+
 ## Сортировка
 
 По размеру файлов

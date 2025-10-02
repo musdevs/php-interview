@@ -41,7 +41,8 @@ FROM
 INNER JOIN b_user_field_lang bufl on
 	bufl.USER_FIELD_ID = buf.ID
 WHERE
-	buf.ENTITY_ID = 'CRM_COMPANY'
+  1=1
+	AND buf.ENTITY_ID = 'CRM_COMPANY'
 	AND bufl.LANGUAGE_ID = 'ru'
 	AND bufl.EDIT_FORM_LABEL LIKE '%филиал%'
 ORDER BY ID
