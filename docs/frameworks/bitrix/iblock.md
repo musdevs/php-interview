@@ -41,6 +41,20 @@ function fetchPropertyEnumValue($id)
 echo fetchPropertyEnumValue($element->get('MY_LIST_FIELD')->getValue());
 ```
 
+## Legacy
+
+### Получить XML_ID типа отсутствия
+
+```php
+$res = CIBlockElement::GetProperty(
+	1, // ID of the information block
+	279638, // ID of the element
+	array("sort" => "asc"), // Order for multiple property values (optional)
+	array("CODE" => "ABSENCE_TYPE") // Filter by property code
+);
+
+var_dump($res->Fetch()['VALUE_XML_ID']);
+```
 
 
 * [РАБОТА С ЭЛЕМЕНТАМИ ИНФОБЛОКОВ В БИТРИКС](https://mrcappuccino.ru/blog/post/iblock-elements-bitrix-d7)

@@ -325,3 +325,64 @@ Filesystem                1K-blocks      Used Available Use% Mounted on
 </code></pre>
 Все сразу:
 <pre><code>lshw -short -C processor -C memory -C disk</code></pre>
+
+## Производительность дисков
+
+### fio
+
+fio создаёт четыре параллельных задачи, которые читают случайные блоки
+по 4 KB из 1 GB файла в течение 30 секунд, используя движок io_uring.
+Результат: сколько твой диск может обработать случайных операций за секунду
+
+```shell
+
+fio --name=test \
+    --ioengine=io_uring \
+    --rw=randread \
+    --bs=4k \
+    --size=1G \
+    --numjobs=4 \
+    --runtime=30s \
+    --group_reporting
+```
+
+```shell
+test: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=io_uring, iodepth=1
+...
+fio-3.36
+Starting 4 processes
+test: Laying out IO file (1 file / 1024MiB)
+test: Laying out IO file (1 file / 1024MiB)
+test: Laying out IO file (1 file / 1024MiB)
+test: Laying out IO file (1 file / 1024MiB)
+Jobs: 4 (f=4): [r(4)][100.0%][r=230MiB/s][r=58.9k IOPS][eta 00m:00s]
+test: (groupid=0, jobs=4): err= 0: pid=416477: Thu Nov  6 14:03:22 2025
+  read: IOPS=61.5k, BW=240MiB/s (252MB/s)(4096MiB/17046msec)
+    slat (usec): min=6, max=178, avg= 9.71, stdev= 2.15
+    clat (nsec): min=977, max=6345.5k, avg=52292.62, stdev=24687.86
+     lat (usec): min=21, max=6359, avg=62.00, stdev=24.80
+    clat percentiles (usec):
+     |  1.00th=[   48],  5.00th=[   49], 10.00th=[   49], 20.00th=[   50],
+     | 30.00th=[   50], 40.00th=[   50], 50.00th=[   51], 60.00th=[   51],
+     | 70.00th=[   52], 80.00th=[   53], 90.00th=[   57], 95.00th=[   60],
+     | 99.00th=[   79], 99.50th=[   85], 99.90th=[  167], 99.95th=[  227],
+     | 99.99th=[  783]
+   bw (  KiB/s): min=234128, max=249680, per=100.00%, avg=246347.76, stdev=890.30, samples=136
+   iops        : min=58532, max=62420, avg=61586.94, stdev=222.57, samples=136
+  lat (nsec)   : 1000=0.01%
+  lat (usec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=40.20%
+  lat (usec)   : 100=59.52%, 250=0.22%, 500=0.02%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=2.49%, sys=27.16%, ctx=1051673, majf=0, minf=52
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=1048576,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=240MiB/s (252MB/s), 240MiB/s-240MiB/s (252MB/s-252MB/s), io=4096MiB (4295MB), run=17046-17046msec
+
+Disk stats (read/write):
+  nvme0n1: ios=1038962/1302, sectors=8311752/154408, merge=0/561, ticks=51661/353, in_queue=52057, util=52.27%
+```

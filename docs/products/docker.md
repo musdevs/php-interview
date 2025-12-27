@@ -70,12 +70,22 @@ docker run -d --rm --name=my-app -p 38000:80 -v $(pwd):/var/www/html --link my-d
 ## Краткий справочник
 
 ### Образы
-* docker images показывает все образы.
-* docker build создаёт образ из файла Dockerfile .
-* docker commit создает образ из контейнера, останавливает его, если он запущен.
-* docker rmi удаляет образ.
-* docker history показывает историю образа.
-* docker tag создает тег для образа (локальному или в реестре).
+
+#### docker images показывает все образы.
+
+#### docker build создаёт образ из файла Dockerfile .
+
+#### docker commit создает образ из контейнера, останавливает его, если он запущен.
+
+#### docker rmi удаляет образ.
+
+#### docker history показывает историю образа.
+
+```shell
+docker image history --no-trunc <image>
+```
+#### docker tag создает тег для образа (локальному или в реестре).
+
 
 ### Жизненный цикл контейнеров
 

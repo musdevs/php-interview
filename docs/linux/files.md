@@ -137,6 +137,18 @@ $ unzip zip_file_full.zip
 lsof -p PID
 ```
 
+### Посмотреть, кто держит удалённые файлы
+
+```shell
+lsof | grep deleted
+```
+
+или так:
+
+```shell
+lsof +L1
+```
+
 ## Монтирование
 
 ### Монтирование ISO-образа

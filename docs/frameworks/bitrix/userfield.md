@@ -47,3 +47,45 @@ WHERE
 	AND bufl.EDIT_FORM_LABEL LIKE '%филиал%'
 ORDER BY ID
 ```
+
+## Скрипты
+
+### Миграция поля во множественное
+
+```php
+CModule::IncludeModule('iblock');
+
+$iblockId = 3;
+$entityId = 'IBLOCK_'.$iblockId.'_SECTION';
+
+try {
+	$sections = CIBlockSection::GetList(
+		array('ID' => 'ASC'),
+		array(
+			'IBLOCK_ID' => $iblockId,
+			'!UF_AUDITOR' => false
+		),
+		false,
+		array('ID', 'UF_AUDITOR')
+	);
+
+	while ($section = $sections->GetNext()) {
+		$sectionId = $section['ID'];
+		$oldAuditor = $section['UF_AUDITOR'];
+
+		if (empty($oldAuditor)) {
+			continue;
+		}
+
+		$auditors = empty($section['UF_AUDITORS']) ? [] : $section['UF_AUDITORS'];
+
+		$result = $GLOBALS['USER_FIELD_MANAGER']->Update($entityId, $sectionId, ['UF_AUDITORS' => [$oldAuditor]]);
+		if (!$result) {
+			echo "Ошибка миграции ID=${sectionId}";
+		}
+	}
+
+} catch (Exception $e) {
+	echo "Происшла ошибка: " . $e->getMessage();
+}
+```

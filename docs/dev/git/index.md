@@ -59,7 +59,19 @@ git remote show origin
 git branch -r
 ```
 
-### Установить отслеживание удаленной ветки для локальной
+### Создать локальную ветку для отслеживания удаленной
+
+```
+git fetch origin
+git checkout -b main origin/main
+```
+
+В современных версиях проще:
+```
+git checkout main
+```
+
+### Установить отслеживание удаленной ветки для уже существующей локальной
 
 ```
 git branch -u origin/main main
@@ -219,6 +231,12 @@ git diff --name-only --cached
 ```
 
 #### Отменить изменения файла в рабочей директории
+
+```shell
+git restore test.txt
+```
+По-другому:
+
 ```shell
 git checkout -- test.txt
 ```
@@ -230,6 +248,11 @@ test.txt можно было бы интерпретировать как наз
 #### Отменить все изменения в рабочей директории
 ```shell
 git checkout -- .
+```
+
+#### Получить в рабочий каталог файл/каталог из определеного коммита
+```shell
+git checkout <SHA commit> -- local/some.php
 ```
 
 ### Изменения
@@ -336,7 +359,25 @@ git branch -vv
   rc/feature 4e4881f43 [origin/rc/feature: behind 6] Pull request #296: Make other
 ```
 
+#### Удалить локальные ссылки на несуществующие удаленные ветки
 
+Сначала эмулируем:
+
+```shell
+git fetch --prune --dry-run
+```
+
+А потом выполнить:
+
+```shell
+git fetch --prune
+```
+
+#### Удалить локальные ветки, которые раньше ссылались на уже несуществующие удаленные ветки
+
+```shell
+git branch -vv | grep ': gone' | awk '{print $1}' | xargs git branch -d
+```
 
 ### Манипуляции с коммитами
 
@@ -453,6 +494,32 @@ Host example.com
     volumes:
       - ~/.ssh:/home/appuser/.ssh:ro
     network_mode: "host"
+```
+
+#### Передача репозитория офлайн
+
+Создание полного архива репозитория:
+
+```shell
+git bundle create my-repo.bundle --all
+```
+
+Упаковка определённой ветки:
+
+```shell
+git bundle create my-feature.bundle main
+```
+
+Проверка содержимого bundle:
+
+```shell
+git bundle verify my-repo.bundle
+```
+
+Клонирование из bundle:
+
+```shell
+git clone my-repo.bundle my-new-repo
 ```
 
 ## Ресурсы

@@ -14,6 +14,32 @@ $rootActivity->setVariable('bizprocCreator', 'user_' . $USER->GetID());
 
 ## [Создание прямой ссылки на страницу с заданием](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=57&LESSON_ID=3817&LESSON_PATH=5442.5446.5059.3817)
 
+## Конвертировать файл шаблона бизнес-процесса в JSON
+
+```php
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
+
+$fp = fopen($_SERVER['DOCUMENT_ROOT'] . '/upload/bp-287.bpt', 'r');
+$data = fread($fp, 1_000_000);
+fclose($fp);
+
+$data = gzuncompress($data);
+$data = unserialize($data);
+
+$json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );
+
+$fp = $fp = fopen($_SERVER['DOCUMENT_ROOT'] . '/upload/bp-287.json', 'w');
+fwrite($fp, $json);
+fclose($fp);
+
+
+echo '<pre>';
+echo($json);
+echo '</pre>';
+?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php'); ?>
+```
+
 ```
 [url=https://[адрес_портала]/company/personal/bizproc/{=Workflow:ID}/]ссылка на страницу просмотра документа[/url]
 ```

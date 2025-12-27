@@ -52,3 +52,23 @@ mysqldump sitemanager \
 --ignore-table=sitemanager.b_event_log \
 | gzip > db.sql.gz
 ```
+
+```shell
+mysqldump --no-data sitemanager \
+b_bp_tracking \
+b_search_content \
+b_search_content_text \
+b_search_content_stem \
+b_cache_tag \
+b_user_profile_record \
+b_event_log \
+| gzip > ~/tmp/db_tables.sql.gz
+```
+
+## Распаковка зашифрованного архива
+
+Не проверял это, взял [отсюда](https://mv-smirnov.org/bitrix-backup-check-unpack/)
+
+```shell
+/var/www/html/bitrix/backup# cat `ls -1v *.enc*` | tail -c +513 | openssl aes-256-ecb -d -in - -out - -K `php -r 'echo bin2hex(md5("passwd"));'` -nosalt -nopad | tar tvf -
+```

@@ -149,3 +149,16 @@ shrink "$IFILE" "$OFILE" "$res" || exit $?
 
 check_smaller "$IFILE" "$OFILE"
 ```
+
+## Изменить метаданные PDF
+
+```shell
+exiftool -Creator='' agreement.pdf
+exiftool -Producer='' agreement.pdf
+exiftool -Title='Согласие на обработку персональных данных' agreement.pdf
+```
+Результат:
+
+```shell
+exiftool agreement.pdf
+```

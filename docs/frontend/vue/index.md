@@ -6,7 +6,11 @@
 ```bash
 yarn global add @vue/cli
 ```
+или обновить
 
+```shell
+npm update -g @vue/cli
+```
 2. [Создать проект](https://cli.vuejs.org/ru/guide/creating-a-project.html#vue-create) **my-project**
 ```bash
 vue create my-project
