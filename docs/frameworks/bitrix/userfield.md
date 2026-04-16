@@ -50,6 +50,12 @@ ORDER BY ID
 
 ## Скрипты
 
+### Описание всех полей
+
+```php
+\Bitrix\Main\Application::getUserTypeManager()->GetUserFields(strtoupper($this->entityType))
+```
+
 ### Миграция поля во множественное
 
 ```php
@@ -87,5 +93,28 @@ try {
 
 } catch (Exception $e) {
 	echo "Происшла ошибка: " . $e->getMessage();
+}
+```
+
+## Сделать поле обязательным
+
+```php
+function getFieldId(string $entityId, string $fieldName): ?int
+{
+  $rs = \CUserTypeEntity::GetList([], [
+    'ENTITY_ID' => $entityId,
+    'FIELD_NAME' => $fieldName,
+  ]);
+
+  if ($field = $rs->Fetch()) {
+    return (int) $field['ID'];
+  }
+}
+
+if ($fieldId = $this->getFieldId('TASKS_TASK', 'UF_ANALYTICS_DIRECTION')) {
+  $userField = new \CUserTypeEntity();
+  $userField->Update($fieldId, [
+    'MANDATORY' => 'Y',
+  ]);
 }
 ```

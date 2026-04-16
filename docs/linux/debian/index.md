@@ -27,6 +27,12 @@ apt-get install iputils-ping
 apt-get install procps
 ```
 
+## Обновление пакета
+
+```shell
+sudo apt install --only-upgrade some-package
+```
+
 ## Поиск пакетов
 
 ### Список установленных пакетов

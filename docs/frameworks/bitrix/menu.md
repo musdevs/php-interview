@@ -45,3 +45,62 @@ $menuItems['some_menu_id'] = [
 
 \Bitrix\Main\Config\Option::set('intranet', 'left_menu_items_to_all_s1', serialize($menuItems), 's1');
 ```
+
+## [Построение и показ меню](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=43&LESSON_ID=3254)
+
+```php
+Array
+(
+	[0] => пункт меню 1
+		Array
+			(
+				[0] => заголовок пункта
+				[1] => ссылка на пункте
+				[2] => массив дополнительных ссылок для подсветки пункта:
+					Array
+						(
+							[0] => ссылка 1
+							[1] => ссылка 2
+							...
+						)
+				[3] => массив дополнительных переменных передаваемых в шаблон меню:
+					Array
+						(
+							[имя переменной 1] => значение переменной 1
+							[имя переменной 2] => значение переменной 2
+							...
+						)
+				[4] => условие, при котором пункт появляется
+					это PHP выражение, которое должно вернуть "true"
+			)
+	[1] => пункт 2
+	[2] => пункт 3
+	...
+)
+```
+
+## Выводить пункт меню только для админов
+
+```php
+<?php
+// .left.menu.php
+if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
+
+$aMenuLinks = [
+	[
+	[
+		'Мой модуль',
+		SITE_DIR.'my/module/',
+		[],
+		[],
+		''
+	],
+	[
+		'Настройки',
+		SITE_DIR.'my/module/settings/',
+		[],
+		[],
+		'\Bitrix\Main\Loader::includeModule("my.module") && \My\Module\Module::hasAdminRole()',
+	],
+];
+```

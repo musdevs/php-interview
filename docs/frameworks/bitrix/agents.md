@@ -31,10 +31,10 @@ define("BX_CRONTAB", true);
 - Для начала полностью отключим выполнение агентов на хите. Для этого необходимо выполнить команду в php-консоли административного меню продукта «1С-Битрикс» /bitrix/admin/php_command_line.php?lang=ru:
 
 ```php
-COption::SetOptionString("main", "agents_use_crontab", "N"); 
-echo COption::GetOptionString("main", "agents_use_crontab", "N"); 
+COption::SetOptionString("main", "agents_use_crontab", "N");
+echo COption::GetOptionString("main", "agents_use_crontab", "N");
 
-COption::SetOptionString("main", "check_agents", "N"); 
+COption::SetOptionString("main", "check_agents", "N");
 echo COption::GetOptionString("main", "check_agents", "Y");
 ```
 
@@ -62,7 +62,7 @@ $_SERVER["DOCUMENT_ROOT"] = realpath(dirname(__FILE__)."/../..");
 $DOCUMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
 
 define("NO_KEEP_STATISTIC", true);
-define("NOT_CHECK_PERMISSIONS",true); 
+define("NOT_CHECK_PERMISSIONS",true);
 define('CHK_EVENT', true);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
@@ -94,6 +94,26 @@ export PHP_IDE_CONFIG="serverName=example.com" && php \
 /var/www/html/bitrix/php_interface/cron_events.php
 ```
 
+## Логирование запуска и останова агентов
+
+```php
+// bitrix/php_interface/dbconn.php
+if (!defined('BX_AGENTS_LOG_FUNCTION')) {
+	if (!defined('logAgents')) {
+		function logAgents($data, $message) {
+			\App\Logger::info($message, $data);
+		}
+		define('BX_AGENTS_LOG_FUNCTION', 'logAgents');
+	}
+}
+```
+
+```
+[2026-03-04T14:55:26.535806+03:00] default.INFO: start {"ID":"392","NAME":"Bitrix\\BIConnector\\Integration\\Superset\\Stepper\\DashboardOwner::execAgent();","AGENT_INTERVAL":"1","IS_PERIOD":"Y","MODULE_ID":"biconnector","RETRY_COUNT":"0"} []
+[2026-03-04T14:55:26.541483+03:00] default.INFO: finish {"ID":"392","NAME":"Bitrix\\BIConnector\\Integration\\Superset\\Stepper\\DashboardOwner::execAgent();","AGENT_INTERVAL":"1","IS_PERIOD":"Y","MODULE_ID":"biconnector","RETRY_COUNT":"0"} []
+[2026-03-04T14:55:26.542080+03:00] default.INFO: start {"ID":"12690924","NAME":"\\Bitrix\\Tasks\\Onboarding\\Internal\\Agent\\CommandAgent::execute();","AGENT_INTERVAL":"300","IS_PERIOD":"Y","MODULE_ID":"tasks","RETRY_COUNT":"0"} []
+[2026-03-04T14:55:26.545443+03:00] default.INFO: finish {"ID":"12690924","NAME":"\\Bitrix\\Tasks\\Onboarding\\Internal\\Agent\\CommandAgent::execute();","AGENT_INTERVAL":"300","IS_PERIOD":"Y","MODULE_ID":"tasks","RETRY_COUNT":"0"} []
+```
 
 ## Ссылки
 * [Агенты и их использование](https://dev.1c-bitrix.ru/learning/course/?COURSE_ID=43&CHAPTER_ID=03436&LESSON_PATH=3913.3516.3436)

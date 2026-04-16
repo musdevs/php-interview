@@ -63,6 +63,12 @@ ls -lh
 -rw-rw-r-- 1 user user 6,4M дек 30  2024 'Верстка на Tailwind CSS #1 - Шапка [6P0VjISPUu4].mp4'
 ```
 
+#### Загрузить конкретные дорожки
+
+```shell
+~/my/bin/yt-dlp/yt-dlp --proxy http://127.0.0.1:8881 --format "231+233" https://www.youtube.com/watch?v=6P0VjISPUu4
+```
+
 ### [Downlodr](https://downlodr.com/)
 
 ### [Media Downloader](http://github.com/mhogomchungu/media-downloader)

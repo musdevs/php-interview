@@ -28,14 +28,15 @@ echo file_get_contents($file);
 ## Просмотр лога SQL-запросов
 
 ```php
-		$connection = \Bitrix\Main\Application::getConnection();
-		$tracker = $connection->startTracker();
+$connection = \Bitrix\Main\Application::getConnection();
+$tracker = $connection->startTracker();
 
 ...
-		$connection->stopTracker();
 
-		foreach ($tracker->getQueries() as $query) {
-			var_dump($query->getSql());
-			var_dump($query->getTime());
-        }
+$connection->stopTracker();
+
+foreach ($tracker->getQueries() as $query) {
+  var_dump($query->getSql());
+  var_dump($query->getTime());
+}
 ```

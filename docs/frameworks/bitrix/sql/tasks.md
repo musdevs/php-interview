@@ -41,3 +41,49 @@ where t.group_id > 0
 and t.parent_id = 0 or t.parent_id is null
 ) as t on t.group_id= g.id
 ```
+
+## Файлы в комментариях задач
+
+Для задачи с ID=202291
+
+```sql
+select f.ID, f.ORIGINAL_NAME, f.SUBDIR, f.FILE_NAME
+from b_file f
+       inner join b_disk_object o on o.FILE_ID = f.ID
+       inner join b_disk_attached_object a on a.OBJECT_ID = o.ID
+       inner join b_forum_message m on a.ENTITY_ID = m.ID
+where m.XML_ID='TASK_202291';
+```
+
+```
++------+----------------+--------+------------------------------------+
+|ID    |ORIGINAL_NAME   |SUBDIR  |FILE_NAME                           |
++------+----------------+--------+------------------------------------+
+|151484|Приказ №1.odt   |disk/785|vqoax27nlavfcffonk0hwf4lr2x5m2ik.odt|
+|151485|Входящий №25.odt|disk/045|ynvqvlii95rcpvzwjxdcn72ae2uvoamg.odt|
++------+----------------+--------+------------------------------------+
+```
+
+## Файл в задаче, помеченный как результат
+
+```sql
+select f.ID, f.ORIGINAL_NAME, f.SUBDIR, f.FILE_NAME
+from b_file f
+         inner join b_disk_object o on o.FILE_ID = f.ID
+         inner join b_disk_attached_object a on a.OBJECT_ID = o.ID
+         inner join b_forum_message m on a.ENTITY_ID = m.ID
+         inner join b_tasks_result r on r.COMMENT_ID = m.ID
+where r.TASK_ID=36;
+```
+
+```
++-------------+----------------------------------------------------+
+|ID           |333                                                 |
++-------------+----------------------------------------------------+
+|ORIGINAL_NAME|Договор.docx                                        |
++-------------+----------------------------------------------------+
+|SUBDIR       |dexika/contract/7ef/ucb6o0ik5ykd31e5g0frx84cc3fi7ppl|
++-------------+----------------------------------------------------+
+|FILE_NAME    |Договор.docx                                        |
++-------------+----------------------------------------------------+
+```

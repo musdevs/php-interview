@@ -30,22 +30,4 @@ ORDER BY (data_length + index_length) DESC;
 | b_im_message                                   |      1897.13 |
 ```
 
-## Размер БД
-
-```sql
-SELECT
-  table_schema AS "Database Name",
-  ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Size in (MB)"
-FROM information_schema.TABLES
-GROUP BY table_schema;
-```
-
-| Database Name       | Size in \(MB\) |
-|:--------------------|:---------------|
-| information\_schema | 0.20           |
-| mysql               | 16.70          |
-| performance\_schema | 0.00           |
-| sitemanager         | 1752.84        |
-| sitemanager1        | 3514.58        |
-| sys                 | 0.03           |
 

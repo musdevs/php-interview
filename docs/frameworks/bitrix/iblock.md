@@ -51,9 +51,22 @@ $res = CIBlockElement::GetProperty(
 	279638, // ID of the element
 	array("sort" => "asc"), // Order for multiple property values (optional)
 	array("CODE" => "ABSENCE_TYPE") // Filter by property code
-);
+)->Fetch();
 
-var_dump($res->Fetch()['VALUE_XML_ID']);
+var_dump($res['VALUE_XML_ID']);
+```
+
+### Получить ID сотрудника в отстутствии
+
+```php
+$result = CIBlockElement::GetProperty(
+	1, // ID of the information block
+	1902072, // ID of the element
+	['sort' => 'asc'], // Order for multiple property values (optional)
+	['CODE' => 'USER'] // Filter by property code
+)->Fetch();
+
+var_dump($result['VALUE']);
 ```
 
 
