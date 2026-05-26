@@ -34,6 +34,15 @@ sudo sysctl net.ipv4.ip_default_ttl=64
 nmcli con up "OnePlus 6"
 sudo sysctl net.ipv4.ip_default_ttl=65
 
+## Проверить доступность удаленного порта
+
+### С помощью трюка bash, когда нет сетевых утилит
+
+```shell
+timeout 2 bash -c 'cat < /dev/null > /dev/tcp/google.com/443' && echo "Open" || echo "Closed"
+```
+
+
 ## Ресурсы
 
 - [Полезный список ресурсов для изучения компьютерных сетей](https://github.com/SE-adm/Awesome-network/tree/main#%D0%9A%D1%83%D1%80%D1%81%D1%8B)

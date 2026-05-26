@@ -1,5 +1,9 @@
 #
 
+## Вставка картинок "Как символ" по умолчанию
+
+Сервис - Параметры - LibreOffice/Writer - Знаки форматирования - Изображение - Привязка - Как символ
+
 ## Как установить по умолчанию wrap картинок
 
 [How can I set the default wrap mode for inserting images in text, in Writer](https://ask.libreoffice.org/t/how-can-i-set-the-default-wrap-mode-for-inserting-images-in-text-in-writer/14615/2)

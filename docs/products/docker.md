@@ -249,7 +249,7 @@ docker container prune -f
 ###  Удаляет неиспользуемые образы (даже старые версии)
 
 ```shell
-docker image prune -a -f
+  docker image prune -a -f
 ```
 
 ###  Чистит volume'ы и сети

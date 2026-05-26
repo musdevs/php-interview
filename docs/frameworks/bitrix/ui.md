@@ -15,3 +15,26 @@
 [Грид bitrix:main.ui.grid](https://bx24devbook.website.yandexcloud.net/Razrabotka/UI/Tablicy/Osnovnoe.html)
 
 [Устаревшее - Гриды и фильтры в Битриксе](https://prominado.ru/blog/gridy-i-filtry-v-bitrix/)
+
+
+### [Cкрыть определенное поле из профиля пользователя Битрикс24](https://www.pavelkvashin.ru/blog/ckryt-opredelennoe-pole-iz-profilya-polzovatelya-bitriks24/)
+
+Для решения задачи понадобится событие BX.UI.EntityEditor:onInit. Пример скрытия поля Email из профиля сотрудника. Условие по которому отработает скрытие поля зависит от вашей задачи.
+
+```js
+ BX.ready(function() {
+
+   BX.addCustomEvent('BX.UI.EntityEditor:onInit', (editor, fields) => {
+            if (editor)
+           {
+               const control = editor.getControlByIdRecursive('EMAIL');
+               if (control)
+               {
+                   control.getParent().removeChild(control, {
+                       enableSaving: false
+                   });
+               }
+           }
+       });
+});
+```

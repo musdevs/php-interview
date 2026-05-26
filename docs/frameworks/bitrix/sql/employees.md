@@ -155,3 +155,7 @@ where f.FIELD_NAME = 'UF_DEPARTMENT'
   and u.ACTIVE = 'Y'
 order by s.DEPTH_LEVEL, s.NAME;
 ```
+
+## Отсутствия
+
+##

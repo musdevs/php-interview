@@ -57,6 +57,36 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/upd
 \CUpdateClientPartner::__RunUpdaterScript($path, $strError, $updateDirFrom, $moduleID);
 ```
 
+Или как описано в [Тестирование установки сборки обновления модуля без загрузки в Маркетплейс](https://www.pavelkvashin.ru/blog/testirovanie-ustanovki-sborki-obnovleniya-modulya-bez-zagruzki-v-marketpleys/)
+
+Рассмотрим пример обновления модуля module.name, версии 2.0.0. Обновление необходимо положить в папку /bitrix/updates/2.0.0/module.name/ Код вызова обновления. Можно в rомандной PHP-строке вызвать:
+
+```php
+
+use Bitrix\Main\Localization\Loc;
+
+require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/update_class.php"); //подключаем класс для обновления модулей
+Loc::loadMessages($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/classes/general/update_client.php"); //подключаем ленг файл
+
+$updater = new CUpdateSystem(); //создаем экземпляр класса для установки обновления
+
+$updates_dir = "2.0.0"; //название директории, в которой лежит обновление с названием модуля. Структура: 2.0.0 -> module.name -> Файлы/Папки обновления
+$arModules = array("module.name"); //массив с названием обновляемого модуля. Так же служит для получение файлов по описанной выше структуре
+$strErrorMessage = ''; //создаем переменную для вывода ошибок
+$arErrorModules = array();   //создаем массив для вывода ошибок. Аналогичен $strErrorMessage
+$arSuccessModules = array(); //возвращает массив со значением Y в случае успешной установки
+
+//вызываем метод обновления
+if (!$updater->UpdateKernel($updates_dir,$arModules,$strErrorMessage,$arErrorModules,$arSuccessModules)){
+     print_r($strErrorMessage);
+}else{
+     print_r($arSuccessModules);
+}
+```
+
+После успешного обновления, директория /updates/2.0.0/ будет удалена.
+
+
 ## Демо-режим
 
 ### Декодирование include.php

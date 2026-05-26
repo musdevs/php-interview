@@ -25,6 +25,13 @@ find . -type f -mtime +30 -ls
 find ./local -type f -mmin -120 -exec cp --parents {} ~/tmp/local \;
 ```
 
+### Поиск по размеру
+
+Больше 1 Мб
+```shell
+ -type f -size 1M
+```
+
 ## Сортировка
 
 По размеру файлов

@@ -66,7 +66,7 @@ ls -lh
 #### Загрузить конкретные дорожки
 
 ```shell
-~/my/bin/yt-dlp/yt-dlp --proxy http://127.0.0.1:8881 --format "231+233" https://www.youtube.com/watch?v=6P0VjISPUu4
+~/my/bin/yt-dlp/yt-dlp --proxy http://127.0.0.1:8881 --format "231+233" [P0VjISPUu4
 ```
 
 ### [Downlodr](https://downlodr.com/)

@@ -1,4 +1,4 @@
-#
+# VS Code short keys
 
 ## Выделение области
 
@@ -11,5 +11,17 @@
 2. Shift+Alt+L - выделить все слова
 
 Появится мультикурсор. Ненужные выделения можно снять Alt+mouse click
+
+## Переход к парному тегу
+
+Ctrl+M
+
+## Свернуть содержимое тега
+
+Ctrl + Shift + [
+
+## Развернуть содержимое тега
+
+Ctrl + Shift + [
 
 [Keyboard shortcuts for Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)

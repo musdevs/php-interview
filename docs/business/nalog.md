@@ -41,6 +41,12 @@ WINEPREFIX=/home/$USER/.wine32nalogul winetricks corefonts
 env LC_ALL=ru_RU.UTF-8 WINEPREFIX=/home/$USER/.wine32nalogul wine start /unix 'C:/Налогоплательщик ЮЛ/INPUTDOC/inputdoc.exe'
 ```
 
+#### Установка обновления
+
+env LC_ALL=ru_RU.UTF-8 WINEPREFIX=/home/$USER/.wine32nalogul wine start /unix 'C:/NalogUL494.exe'
+ghj
+
+
 ### Сдача налоговой декларации
 
 [Сдача отчетности через сервис налоговой. Настройка отправки. Первая отправка декларации через ИФНС](https://www.youtube.com/watch?v=TWyrLOJ0L6E&t=0s)

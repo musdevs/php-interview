@@ -67,7 +67,7 @@ https://www.8host.com/blog/razdelenie-i-formatirovanie-diskov-v-linux/
 
 https://losst.ru/rsync-primery-sinhronizatsii
 
-## Список подключенных дисков
+### Список подключенных дисков
 
 ```
 ls -l /dev/
@@ -80,8 +80,7 @@ brw-rw----  1 root   disk    253,  33 Apr  3  2020 vdc1
 brw-rw----  1 root   disk    253,  48 Mar 12 17:37 vdd
 ```
 
-
-
+### Список подключенных дисков с файловыми системами
 
 ```
 lsblk

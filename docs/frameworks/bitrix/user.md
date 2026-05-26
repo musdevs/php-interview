@@ -32,7 +32,7 @@ https://dev.1c-bitrix.ru/support/forum/forum6/topic94911/
 
 Добавить файл bitrix/admin/aa.php и выполнить его через браузер
 ```php
-<?
+<?php
 // bitrix/admin/aa.php
 define("SM_SAFE_MODE", true);
 define("NOT_CHECK_PERMISSIONS",true);

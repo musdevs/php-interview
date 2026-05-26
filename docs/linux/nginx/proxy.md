@@ -32,3 +32,33 @@ server {
 ```
 127.0.0.1       remote.example.com
 ```
+
+## Разделение запросов на разные бэкэнды
+
+Запросы от мобильных идут на отдельный бэкэнд
+
+```shell
+http {
+    map $http_user_agent $backend {
+        default backend1;
+        "~*Mobile" backend2;
+    }
+
+    upstream backend1 {
+        server 10.0.0.1:8080;
+    }
+
+    upstream backend2 {
+        server 10.0.0.2:8080;
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://$backend;
+        }
+    }
+}
+```
+

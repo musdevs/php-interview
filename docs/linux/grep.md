@@ -24,3 +24,13 @@ find ~/www -name composer.lock -exec grep --with-filename -A 1 \"name\"\:\ \"psr
 /home/bitrix/www/bitrix/modules/some/composer.lock:            "name": "psr/container",
 /home/bitrix/www/bitrix/modules/some/composer.lock-            "version": "1.0.0",
 ```
+
+## Найти и показать строки рядом
+
+-A1 - 1 строка перед
+-B2 - 2 строки после
+-C3 - 3 строки до и после
+
+```shell
+grep -iI -C1 passw /var/www/html/bx-site/bitrix/.settings.php
+```

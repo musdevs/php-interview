@@ -116,44 +116,64 @@ HorizontalLine
 [Список модификаторов](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=57&LESSON_ID=12407&LESSON_PATH=5442.5446.5059.12407)
 
 Модификатор	Описание
+
 printable	Преобразует значение в понятную пользователю строку. Подходит для данных любого типа данных.
 {=Variable:Variable1 > printable}
+
 friendly	Для данных типа Пользователь. Выводит только имя и фамилию пользователя, без его ID и логина.
 {=Document:CREATED_BY > friendly}
+
 name	Получает имя файла для полей типа Файл. С версии 20.100.0 модуля Бизнес-процессы.
 {=Variable:File > name}
+
 server	Для данных типа Дата и Дата/время. Выводит дату/время в часовом поясе сервера.
 {=Variable:Datetime > server}
+
 local	Для данных типа Дата и Дата/время. Выводит дату/время в часовом поясе пользователя.
 {=Variable:Datetime > local}
+
 responsible	Для данных типа Дата и Дата/время. Выводит дату/время в часовом поясе Ответственного.
 {=Variable:Datetime > responsible}
+
 publink	Для данных типа Файл. Создаёт публичную ссылку на файл. С версии 20.0.700 модуля Бизнес-процессы.
 {=Document:PROPERTY_MY_FILE > publink}
+
 shortlink	Для данных типа Файл. Создаёт короткую ссылку на файл. С версии 20.0.700 модуля Бизнес-процессы.
 {=Document:PROPERTY_MY_FILE > shortlink}
+
 src	Для данных типа Файл. Создаёт прямую ссылку на файл.
 Важно: использование в коробочных версиях продукта небезопасно.
 {=Document:PROPERTY_MY_FILE > src}
+
 Модификаторы для преобразования типов данных
+
 bool	Преобразует данные в bool (булевый тип).
 {=Variable:Variable1 > bool}
+
 date	Преобразует данные в тип date (дата).
 {=Variable:Variable1 > date}
+
 datetime	Преобразует данные в тип datetime (дата/время).
 {=Variable:Variable1 > datetime}
+
 double	Преобразует данные в тип double (число).
 {=Variable:Variable1 > double}
+
 int	Преобразует данные в тип int (целое число).
 {=Variable:Variable1 > int}
+
 file	Преобразует данные в тип file (файл).
 {=Variable:Variable1 > file}
+
 select	Преобразует данные в тип select (список).
 {=Variable:Variable1 > select}
+
 string	Преобразует данные в тип string (строка).
 {=Variable:Variable1 > string}
+
 text	Преобразует данные в тип text (текст).
 {=Variable:Variable1 > text}
+
 user	Преобразует данные в тип user (пользователь).
 {=Variable:Variable1 > user}
 
